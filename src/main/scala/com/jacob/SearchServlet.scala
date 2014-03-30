@@ -6,12 +6,14 @@ import scalate.ScalateSupport
 class SearchServlet extends RecipegraceStack {
 
   get("/") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate</a>.
-      </body>
-    </html>
+    contentType="text/html"
+    ssp("index")
   }
-  
+   post("/search") {
+    contentType="text/html"
+    <html>
+      <title>Recipe results for:{params("query")}</title>
+    	<body>We don't have any results for anything including:{params("query")}</body>
+</html>
+  } 
 }

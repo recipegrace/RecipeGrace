@@ -1,0 +1,3 @@
+	<form method="POST" action="search">
+		 <input name="query"><button type="submit">Search recipe</button>
+	</form>
