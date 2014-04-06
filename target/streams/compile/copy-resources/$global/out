@@ -1,0 +1,4 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/fjacob/projects/recipes/RecipeGrace/src/main/resources/logback.xml,/Users/fjacob/projects/recipes/RecipeGrace/target/scala-2.10/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/fjacob/projects/recipes/RecipeGrace/src/main/resources/props,/Users/fjacob/projects/recipes/RecipeGrace/target/scala-2.10/classes/props)[0m
+[0m[[0mdebug[0m] [0m	(/Users/fjacob/projects/recipes/RecipeGrace/src/main/resources/props/default.props,/Users/fjacob/projects/recipes/RecipeGrace/target/scala-2.10/classes/props/default.props)[0m

@@ -1,0 +1,21 @@
+eclipse
+container:start
+~;container:start
+eclipse with-sources=true
+eclipse with-sources = true
+eclipse
+~;container:start
+eclipse
+./eclipse
+eclipse
+~;container:start
+eclipse
+~;container:start
+exit
+~;container:start
+last compile:compile
+~;container:start
+container:start
+eclipse
+container:start
+~;container:start
