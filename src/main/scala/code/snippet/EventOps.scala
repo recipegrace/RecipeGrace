@@ -30,11 +30,14 @@ class EventOps extends Logger {
   // If the entered data passes validation then the user is redirected to the List page, 
   // otherwise the form on which the user clicked submit is reloaded 
   def processSubmit() = {
+    S.notice("Somethig will happen")
+    
     eventVar.is.validate match {
       case  Nil => {
           // note the return boolean from eventVar.is.save is ignored as it does
           // not contain useful information. See thread:
           // https://groups.google.com/forum/?hl=en#!searchin/liftweb/Mapper.save/liftweb/kcWwaqGamW0/RjWfdOxjShEJ
+    	  S.notice("Hello ")
           eventVar.is.save 
           S.notice("Event Saved")
           // S.seeOther throws an exception to interrupt the flow of execution and redirect
