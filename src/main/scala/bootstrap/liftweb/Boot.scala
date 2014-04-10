@@ -1,104 +1,107 @@
 package bootstrap.liftweb
 
-import net.liftweb._
-import util._
-import Helpers._
+import scala.xml.{Null, UnprefixedAttribute}
+import javax.mail.internet.MimeMessage
 
+import net.liftweb._
 import common._
 import http._
-import sitemap._
-import Loc._
-import mapper._
+import util._
+import util.Helpers._
 
-import code.model._
+import code.config._
+import code.model.{SystemUser, User}
+
+import net.liftmodules.extras.{Gravatar, LiftExtras}
+import net.liftmodules.mongoauth.MongoAuth
 import net.liftmodules.FoBo
 
-import scala.language.postfixOps
-
 /**
- * A class that's instantiated early and run.  It allows the application
- * to modify lift's environment
- */
-class Boot {
+* A class that's instantiated early and run. It allows the application
+* to modify lift's environment
+*/
+class Boot extends Loggable {
   def boot {
-    if (!DB.jndiJdbcConnAvailable_?) {
-      val vendor = 
-	new StandardDBVendor(Props.get("db.driver") openOr "org.h2.Driver",
-			     Props.get("db.url") openOr 
-			     "jdbc:h2:lift_proto.db;AUTO_SERVER=TRUE",
-			     Props.get("db.user"), Props.get("db.password"))
+    logger.info("Run Mode: "+Props.mode.toString)
 
-      LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
+    // init mongodb
+    MongoConfig.init()
 
-      DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
-    }
+    // init auth-mongo
+    MongoAuth.authUserMeta.default.set(User)
+    MongoAuth.loginTokenAfterUrl.default.set(Site.password.url)
+    MongoAuth.siteName.default.set("$name$")
+    MongoAuth.systemEmail.default.set(SystemUser.user.email.get)
+    MongoAuth.systemUsername.default.set(SystemUser.user.name.get)
 
-    // Use Lift's Mapper ORM to populate the database
-    // you don't need to use Mapper to use Lift... use
-    // any ORM you want
-    Schemifier.schemify(true, Schemifier.infoF _, User)
+    // For S.loggedIn_? and TestCond.loggedIn/Out builtin snippet
+    LiftRules.loggedInTest = Full(() => User.isLoggedIn)
+
+    // checks for ExtSession cookie
+    LiftRules.earlyInStateful.append(User.testForExtSession)
+
+    // Gravatar
+    Gravatar.defaultImage.default.set("wavatar")
+
+    // config an email sender
+    SmtpMailer.init
 
     // where to search snippet
     LiftRules.addToPackages("code")
 
+    // set the default htmlProperties
+    LiftRules.htmlProperties.default.set((r: Req) => new Html5Properties(r.userAgent))
 
-    def sitemapMutators = User.sitemapMutator
-    //The SiteMap is built in the Site object bellow 
-    LiftRules.setSiteMapFunc(() => sitemapMutators(Site.sitemap))
+    // Build SiteMap
+    LiftRules.setSiteMap(Site.siteMap)
 
-    //Init the FoBo - Front-End Toolkit module, 
-    //see http://liftweb.net/lift_modules for more info
-    FoBo.InitParam.JQuery=FoBo.JQuery1102  
-    FoBo.InitParam.ToolKit=FoBo.Bootstrap311 
+    // Error handler
+    ErrorHandler.init 
+ 
+    // 404 handler
+    LiftRules.uriNotFound.prepend(NamedPF("404handler") {
+      case (req, failure) =>
+        NotFoundAsTemplate(ParsePath(List("404"), "html", false, false))
+    })
+
+    FoBo.InitParam.JQuery=FoBo.JQuery1102
+    FoBo.InitParam.ToolKit=FoBo.Bootstrap311
     FoBo.init() 
-    
-    //Show the spinny image when an Ajax call starts
+    // Show the spinny image when an Ajax call starts
     LiftRules.ajaxStart =
-      Full(() => LiftRules.jsArtifacts.show("ajax-loader").cmd)
-    
+      Full(() => LiftRules.jsArtifacts.show("ajax-spinner").cmd)
+
     // Make the spinny image go away when it ends
     LiftRules.ajaxEnd =
-      Full(() => LiftRules.jsArtifacts.hide("ajax-loader").cmd)
+      Full(() => LiftRules.jsArtifacts.hide("ajax-spinner").cmd)
 
     // Force the request to be UTF-8
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
 
-    // What is the function to test if a user is logged in?
-    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
+    // Init Extras
+    LiftExtras.init()
 
-    // Use HTML5 for rendering
-    LiftRules.htmlProperties.default.set((r: Req) =>
-      new Html5Properties(r.userAgent))    
-      
-    LiftRules.noticesAutoFadeOut.default.set( (notices: NoticeType.Value) => {
-        notices match {
-          case NoticeType.Notice => Full((8 seconds, 4 seconds))
-          case _ => Empty
-        }
-     }
-    ) 
-    
-    // Make a transaction span the whole HTTP request
-    S.addAround(DB.buildLoanWrapper)
+    // don't include the liftAjax.js code. It's served statically.
+    LiftRules.autoIncludeAjaxCalc.default.set(() => (session: LiftSession) => false)
+
+    // Mailer
+    Mailer.devModeSend.default.set((m: MimeMessage) => logger.info("Dev mode message:\n" + prettyPrintMime(m)))
+    Mailer.testModeSend.default.set((m: MimeMessage) => logger.info("Test mode message:\n" + prettyPrintMime(m)))
+  }	
+
+  private def prettyPrintMime(m: MimeMessage): String = {
+    val buf = new StringBuilder
+    val hdrs = m.getAllHeaderLines
+    while (hdrs.hasMoreElements)
+      buf ++= hdrs.nextElement.toString + "\n"
+
+    val out =
+      """
+|%s
+|====================================
+|%s
+""".format(buf.toString, m.getContent.toString).stripMargin
+
+    out
   }
-  
-  object Site {
-    import scala.xml._
-    val divider1   = Menu("divider1") / "divider1"
-    val ddLabel1   = Menu.i("UserDDLabel") / "ddlabel1"
-    val home       = Menu.i("Home") / "index"  
-    val userMenu   = User.AddUserMenusHere
-    val static     = Menu(Loc("Add Recipe", Link(List("recipe"), true, "/recipe/newrecipe"), S.loc("AddRecipe" , scala.xml.Text("Add Recipe")),LocGroup("lg2","topRight")))
-    //val twbs       = Menu(Loc("Bootstrap3", Link(List("bootstrap301"), true, "/bootstrap301/index"), S.loc("Bootstrap3" , scala.xml.Text("Bootstrap3")),LocGroup("lg2")))
-     
-    def sitemap = SiteMap(
-        home          >> LocGroup("lg1"),
-        static,
-      //  twbs,
-        ddLabel1      >> LocGroup("topRight") >> PlaceHolder submenus (
-            divider1  >> FoBo.TBLocInfo.Divider >> userMenu
-            )
-         )
-  }
-  
 }
