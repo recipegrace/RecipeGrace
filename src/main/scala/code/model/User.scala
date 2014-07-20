@@ -2,73 +2,37 @@ package code
 package model
 
 import lib.RogueMetaRecord
-
-import org.bson.types.ObjectId 
+import org.bson.types.ObjectId
 import org.joda.time.DateTime
-
 import net.liftweb._
 import common._
 import http.{StringField => _, BooleanField => _, _}
 import mongodb.record.field._
 import record.field._
 import util.FieldContainer
-
 import net.liftmodules.mongoauth._
 import net.liftmodules.mongoauth.field._
 import net.liftmodules.mongoauth.model._
+import net.liftweb.http.SHtml.ElemAttr
 
 class User private () extends ProtoAuthUser[User] with ObjectIdPk[User] {
   def meta = User
 
   def userIdAsString: String = id.toString
 
-  object locale extends LocaleField(this) {
-    override def displayName = "Locale"
-    override def defaultValue = "en_US"
-  }
-  object timezone extends TimeZoneField(this) {
-    override def displayName = "Time Zone"
-    override def defaultValue = "America/Chicago"
-  }
 
   object name extends StringField(this, 64) {
-    override def displayName = "Name"
+    override def displayName = "Name"  
 
     override def validations =
       valMaxLen(64, "Name must be 64 characters or less") _ ::
       super.validations
-  }
-  object location extends StringField(this, 64) {
-    override def displayName = "Location"
 
-    override def validations =
-      valMaxLen(64, "Location must be 64 characters or less") _ ::
-      super.validations
-  }
-  object bio extends TextareaField(this, 160) {
-    override def displayName = "Bio"
 
-    override def validations =
-      valMaxLen(160, "Bio must be 160 characters or less") _ ::
-      super.validations
+      
   }
 
-  /*
-   * FieldContainers for various LiftScreeens.
-   */
-  def accountScreenFields = new FieldContainer {
-    def allFields = List(username, email, locale, timezone)
-  }
-
-  def profileScreenFields = new FieldContainer {
-    def allFields = List(name, location, bio)
-  }
-
-  def registerScreenFields = new FieldContainer {
-    def allFields = List(username, email)
-  } 
-
-  def whenCreated: DateTime = new DateTime(id.get.getTime)
+  def whenCreated: DateTime = new DateTime(id.get.getTimestamp())
 }
 
 object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User] with Loggable {
@@ -76,10 +40,23 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
 
   override def collectionName = "user.users"
 
-  ensureIndex((email.name -> 1), true)
-  ensureIndex((username.name -> 1), true)
+  createIndex((email.name -> 1), true)
+  createIndex((username.name -> 1), true)
 
   def findByEmail(in: String): Box[User] = find(email.name, in)
+  
+  def emailExists(str:String):Boolean = {
+   findByEmail(str) match {
+      case Full(x) => true
+      case _=> false
+    }
+  }
+    def userNameExists(str:String):Boolean = {
+   findByUsername(str) match {
+      case Full(x) => true
+      case _=> false
+    }
+  }
   def findByUsername(in: String): Box[User] = find(username.name, in)
 
   def findByStringId(id: String): Box[User] =
@@ -135,8 +112,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
   // send an email to the user with a link for logging in
   def sendLoginToken(user: User): Unit = {
     import net.liftweb.util.Mailer._
-
-    val token = LoginToken.createForUserId(user.id.get)
+    val token = LoginToken.createForUserIdBox(user.id.get)
 
     val msgTxt =
       """
@@ -150,7 +126,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
         |
         |Thanks,
         |%s
-      """.format(siteName, token.url, sysUsername).stripMargin
+      """.format(siteName, token.get.url, sysUsername).stripMargin
 
     sendMail(
       From(MongoAuth.systemFancyEmail),
@@ -163,7 +139,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
   /*
    * ExtSession
    */
-  def createExtSession(uid: ObjectId) = ExtSession.createExtSession(uid)
+  def createExtSession(uid: ObjectId) = ExtSession.createExtSessionBox(uid)
 
   /*
   * Test for active ExtSession.
@@ -189,18 +165,16 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
 case class LoginCredentials(email: String, isRememberMe: Boolean = false)
 
 object SystemUser {
-  private val username = "liftmongapp"
+  private val username = "liftmongotest"
   private val email = "help@localhost.com"
 
   lazy val user: User = User.find("username", username) openOr {
     User.createRecord
-      .name("LiftMongApp")
+      .name("LiftMongoTest")
       .username(username)
       .email(email)
-      .locale("en_US")
-      .timezone("America/Chicago")
       .verified(true)
       .password("abc123", true)
-      .save
+      .save()
   }
 }

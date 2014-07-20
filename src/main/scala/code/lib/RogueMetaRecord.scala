@@ -5,7 +5,7 @@ import config.MongoConfig
 
 import net.liftweb._
 import mongodb.record._
- 
+
 import com.foursquare.rogue._
 
 /**

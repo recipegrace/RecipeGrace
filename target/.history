@@ -28,3 +28,13 @@ eclipse
 container:start
 eclipse
 container:start
+eclipse
+container:start
+eclipse
+sbt clean
+clean
+container:start
+sbt clean
+clean
+container:start
+eclipse
