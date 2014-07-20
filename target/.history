@@ -38,3 +38,4 @@ sbt clean
 clean
 container:start
 eclipse
+container:start
