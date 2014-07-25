@@ -53,5 +53,6 @@ object MongoConfig extends Factory with Loggable {
         logger.info("MongoDB inited: %s".format(defaultDbAddress.toString))
     }
   }
+  val admin ="feroshjacob@gmail.com"
 }
 

@@ -9,6 +9,7 @@ import net.liftweb.common.Logger
 import net.liftweb.mapper._
 import scala.xml._
 import code.model.User
+import net.liftweb.http.js.JsCmd
 
 class ListUsers extends PaginatorSnippet[User] {
   
@@ -16,12 +17,22 @@ class ListUsers extends PaginatorSnippet[User] {
   override def page = findPage (curPage, itemsPerPage)
   override def count = total
 
-
+def submitHandler(user: User): JsCmd = {
+    S.redirectTo("listusers", () => {
+      val deleteEmail = user.email
+      val result =User.delete_!(user)
+      if(result)
+      S.notice("Deleted " + deleteEmail  )
+      else
+         S.error("Delete:" + deleteEmail  + " failed")
+    })
+  }
     def renderPage(in: NodeSeq): NodeSeq = page.flatMap(t =>
     bind("m", in,
         "creationdate" -> t.whenCreated.toDateTime().toString(),
           "username" ->t.username.get,
-          "email" -> t.email.get
+          "email" -> t.email.get,
+          "submit" -> SHtml.submit("X", () => submitHandler(t))
         )
 
   )

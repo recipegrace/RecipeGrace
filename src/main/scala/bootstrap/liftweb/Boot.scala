@@ -11,9 +11,6 @@ import mapper._
 import code.model._
 import net.liftmodules.FoBo
 import scala.language.postfixOps
-import code.config.UserSite
-import code.config.UserSite
-import code.config.MenuLoc
 import sitemap._
 import sitemap.Loc._
 import sitemap._
@@ -31,11 +28,11 @@ class Boot {
   def boot {
 
      MongoConfig.init() 
-    MongoAuth.authUserMeta.default.set(User)
-    MongoAuth.loginTokenAfterUrl.default.set(Site.password.url)
-    MongoAuth.siteName.default.set("LiftMongoTest")
-    MongoAuth.systemEmail.default.set(SystemUser.user.email.get)
-    MongoAuth.systemUsername.default.set(SystemUser.user.name.get)
+//    MongoAuth.authUserMeta.default.set(User)
+ //   MongoAuth.loginTokenAfterUrl.default.set(Site.password.url)
+ //   MongoAuth.siteName.default.set("LiftMongoTest")
+//    MongoAuth.systemEmail.default.set(SystemUser.user.email.get)
+//    MongoAuth.systemUsername.default.set(SystemUser.user.name.get)
     // Use Lift's Mapper ORM to populate the database
     // you don't need to use Mapper to use Lift... use
     // any ORM you want
@@ -89,15 +86,16 @@ class Boot {
     val divider1   = Menu("divider1") / "divider1"
     val ddLabel1   = Menu.i("UserDDLabel") / "ddlabel1"
     val home       = Menu.i("Home") / "index" 
+    
     val isAdmin = If(() => Try{User.currentUser.get.email.toString== "feroshjacob@gmail.com"}.getOrElse(false),
                   () => RedirectResponse("/login"))
- val loginToken = MenuLoc(buildLoginTokenMenu)
-  val logout = MenuLoc(buildLogoutMenu)
-   val listUsers = MenuLoc(Menu.i("Users") / "admin" / "listusers" >> isAdmin )
-    val password = MenuLoc(Menu.i("Password") / "settings" / "password" >> RequireLoggedIn )
-  val register = MenuLoc(Menu.i("Register") / "register" >> RequireNotLoggedIn)
+ val loginToken = buildLoginTokenMenu
+  val logout =buildLogoutMenu
+   val listUsers = Menu.i("Users") / "admin" / "listusers" >> isAdmin 
+    val password = Menu.i("Password") / "settings" / "password" >> RequireLoggedIn 
+  val register =  Menu.i("Register") / "register" >> RequireNotLoggedIn
 
-   val static     = Menu(Loc("Static", Link(List("static"), true, "/static/index"), S.loc("Contact Us" , scala.xml.Text("Contact Us")),LocGroup("lg2","topRight")))
+   val static     = Menu(Loc("Static", Link(List("static"), true, "/static/contactus"), S.loc("Contact Us" , scala.xml.Text("Contact Us")),LocGroup("lg2","topRight")))
   //  val twbs       = Menu(Loc("Bootstrap3", Link(List("bootstrap301"), true, "/bootstrap301/index"), S.loc("Bootstrap3" , scala.xml.Text("Bootstrap3")),LocGroup("lg2")))
      
     def sitemap = SiteMap(
@@ -107,9 +105,9 @@ class Boot {
   //      twbs,
         ddLabel1      >> LocGroup("topRight") >> PlaceHolder submenus (
            // divider1  >> FoBo.TBLocInfo.Divider >> profileParamMenu
-            password.menu, register.menu,listUsers.menu,
+            password, register,listUsers,
              Menu.i("Login") / "login" >> RequireNotLoggedIn,
-            logout.menu
+            logout
             )
          )
   }

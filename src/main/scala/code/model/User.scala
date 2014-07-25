@@ -164,17 +164,4 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
 
 case class LoginCredentials(email: String, isRememberMe: Boolean = false)
 
-object SystemUser {
-  private val username = "liftmongotest"
-  private val email = "help@localhost.com"
 
-  lazy val user: User = User.find("username", username) openOr {
-    User.createRecord
-      .name("LiftMongoTest")
-      .username(username)
-      .email(email)
-      .verified(true)
-      .password("abc123", true)
-      .save()
-  }
-}

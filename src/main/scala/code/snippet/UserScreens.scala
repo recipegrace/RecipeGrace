@@ -1,7 +1,6 @@
 package code
 package snippet
 
-import config.UserSite
 import model._
 import scala.xml._
 import net.liftweb._
@@ -14,6 +13,8 @@ import http.js.JsCmds._
 import net.liftmodules.extras.Gravatar
 import net.liftmodules.mongoauth.model.ExtSession
 import net.liftmodules.mongoauth.LoginRedirect
+import net.liftmodules.mongoauth.MongoAuth
+import code.config.MongoConfig
 
 /*
  * Use for editing the currently logged in user only.
@@ -22,13 +23,13 @@ sealed trait BaseCurrentUserScreen extends BaseScreen {
   object userVar extends ScreenVar(User.currentUser.openOr(User.createRecord))
 
   override def localSetup {
-    Referer(UserSite.home.url)
+    Referer("/")
   }
 }
 
 object PasswordScreen extends BaseCurrentUserScreen {
 
-  override def validations = RegisterScreen.passwordsMustMatch _ :: super.validations
+
   val passwordField = password(S ? "Password", "",
     trim,
     valMinLen(RegisterScreen.pwdMinLength, "Password must be at least " + RegisterScreen.pwdMinLength + " characters"),
@@ -38,6 +39,13 @@ object PasswordScreen extends BaseCurrentUserScreen {
   val confirmPasswordField = password(S ? "Password", "",
     trim,
     valMinLen(6, "Password too short"), "class" -> "form-control")
+    
+    def passWordMatch() = 
+     if (passwordField.is != confirmPasswordField.is)
+    List(FieldError(confirmPasswordField, "Passwords must match"))
+    else Nil
+    
+      override def validations =   passWordMatch _  :: super.validations
   def finish() {
     userVar.is.password(passwordField.is)
     userVar.is.password.hashIt
@@ -54,7 +62,7 @@ object LoginScreen extends BaseCurrentUserScreen {
   val havePass = field("Do you have password?", true)
 
   val passWord = password(S ? "Password", "",
-    trim,
+    trim, valMinLen(2, "Name too short"),
      "class" -> "form-control")
 
   val savePassWord = field(S ? "Save password?", false)
@@ -73,7 +81,7 @@ object LoginScreen extends BaseCurrentUserScreen {
           User.logUserIn(user, true)
           if (savePassWord) User.createExtSession(user.id.get)
           else ExtSession.deleteExtCookie()
-          RedirectTo(LoginRedirect.openOr("/"))
+          S.notice("Welcome "+ user.username)
         } else {
           S.error("Invalid credentials")
           Noop
@@ -92,7 +100,7 @@ object LoginScreen extends BaseCurrentUserScreen {
  */
 object RegisterScreen extends BaseCurrentUserScreen {
 
-  override def validations = passwordsMustMatch _ :: super.validations
+  override def validations = registterationValidations _ :: super.validations
   val pwdMinLength = 6
   val pwdMaxLength = 34
   val userName = field(S ? "Username","",
@@ -113,10 +121,20 @@ object RegisterScreen extends BaseCurrentUserScreen {
   val rememberMe = field(S ? "Save password?", User.loginCredentials.is.isRememberMe)
 
   override def localSetup {
-    Referer(UserSite.home.url)
+    Referer("/")
   }
-  def passwordsMustMatch(): Errors = {
-    if (passwordField.is != confirmPasswordField.is)
+  
+  def validEmail(text:String):Boolean = {
+     val Email = """(\w+)@([\w\.]+)""".r
+     Email.findFirstIn(text) match {
+       case Some(x) => true
+       case _ => false
+     }
+  }
+  def registterationValidations(): Errors = {
+    if(!validEmail(email))
+       List(FieldError(email, "Not a valid email"))
+   else if (passwordField.is != confirmPasswordField.is)
       List(FieldError(confirmPasswordField, "Passwords must match"))
     else if( User.emailExists(email.is.toString())) {
        List(FieldError(email, "Email already exists, please go to the login page for the remainder email"))
