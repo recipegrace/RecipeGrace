@@ -39,3 +39,5 @@ clean
 container:start
 eclipse
 container:start
+assembly
+container:start
