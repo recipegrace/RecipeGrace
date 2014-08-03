@@ -75,7 +75,8 @@ class Boot {
           case _ => Empty
         }
      }
-    ) 
+    )
+    bootstrap.liftmodules.GoogleAnalytics.init 
     
    
   }
