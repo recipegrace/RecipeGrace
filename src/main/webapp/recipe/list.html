@@ -1,22 +1,21 @@
 <div data-lift="lift:surround?with=default;at=content">
 	
 
-		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped"
+		<table  class='table borderless'
         id="example" width="100%">
         <thead>
-            <tr>					<th>Registration Date</th>
-					<th>Username</th>
-					<th>Email</th>
-					<th>Action</th>
+            <tr>					<th>Name</th>
+					<th>Categories</th>
+<th>View</th>
             </tr>
         </thead>
         <tbody>
-            <tr data-lift="lift:ListUsers.renderPage">
-                <td><m:creationdate>
-                    </m:creationdate></td>
-                <td><m:username>
-                    </m:username></td>
-                <td><m:email /></td>
+            <tr data-lift="lift:ListRecipes.renderPage">
+                <td><m:name>
+                    </m:name></td>
+                <td><m:categories>
+                    </m:categories></td>
+      
                                 <td><form m:url="" method="get">
                         <m:submit />
                     </form></td>
@@ -25,7 +24,8 @@
     </table>
 		
 
-	<div data-lift="lift:ListUsers.paginate">
+	
+	<div data-lift="lift:ListRecipes.paginate">
 		<nav:first></nav:first>
 		|
 		<nav:prev></nav:prev>

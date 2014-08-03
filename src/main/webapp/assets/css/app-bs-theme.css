@@ -41,4 +41,7 @@ Make and or include your own bootstrap-theme for your app*/
     font-style: italic;
     font-weight: normal;
 }
+.borderless td {
+    border: none;
+}
 

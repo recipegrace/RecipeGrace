@@ -94,6 +94,9 @@ class Boot {
    val listUsers = Menu.i("Users") / "admin" / "listusers" >> isAdmin 
     val password = Menu.i("Password") / "settings" / "password" >> RequireLoggedIn 
   val register =  Menu.i("Register") / "register" >> RequireNotLoggedIn
+  val listRecipes =  Menu.i("Recipes") / "recipe" /"list" >> RequireNotLoggedIn
+  
+  
 
    val static     = Menu(Loc("Static", Link(List("static"), true, "/static/contactus"), S.loc("Contact Us" , scala.xml.Text("Contact Us")),LocGroup("lg2","topRight")))
   //  val twbs       = Menu(Loc("Bootstrap3", Link(List("bootstrap301"), true, "/bootstrap301/index"), S.loc("Bootstrap3" , scala.xml.Text("Bootstrap3")),LocGroup("lg2")))
@@ -105,7 +108,7 @@ class Boot {
   //      twbs,
         ddLabel1      >> LocGroup("topRight") >> PlaceHolder submenus (
            // divider1  >> FoBo.TBLocInfo.Divider >> profileParamMenu
-            password, register,listUsers,
+            password, register,listUsers,listRecipes,
              Menu.i("Login") / "login" >> RequireNotLoggedIn,
             logout
             )
