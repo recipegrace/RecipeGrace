@@ -1,19 +1,19 @@
 package com.jacob.mxp
 
 object ParserHelper {
-  
-  case class MXPIngredient(amount: String, measure: String, ingredient: String)
-case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
-  categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
-  source: String, credit: String)
-  
+
+  case class MXPIngredient(amount: String, measure: String, ingredient: String, notes: List[String])
+  case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
+    categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
+    source: String, credit: String)
+
   abstract class ListOfTypes[T]() {
     var listOfLists: List[T] = List()
     var start = false
     def startNew() = {
       start = true
     }
-  
+
     def getContent() = {
       listOfLists
     }
@@ -53,14 +53,31 @@ case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
       start = true
       startText = text.replace("FOR THE ", "").replace("THE ", "").toLowerCase().trim.capitalize
     }
-    def add(text: MXPIngredient) = {
 
-      if (start == false && !listOfLists.isEmpty) {
-        val currentList = listOfLists.last._2
-        val newList = (listOfLists.last._1, currentList ++ List(text))
-        listOfLists = listOfLists.updated(listOfLists.size - 1, newList)
+    def endingWithOr(ingredients:List[MXPIngredient] ):Boolean ={
+      if(ingredients.last.notes.isEmpty &&ingredients.last.ingredient.toLowerCase().endsWith(" or")) true
+      else if ( !ingredients.last.notes.isEmpty &&ingredients.last.notes.last.toLowerCase().endsWith(" or")) true
+      else false
+    } 
+    
+    def add(ingredient: MXPIngredient) = {
+
+      if (start == false) {
+       
+
+        listOfLists = if (listOfLists.isEmpty)
+          List((startText, List(ingredient)))
+        else {
+        
+          val currentList = listOfLists.last._2  
+          if(endingWithOr(currentList) ) println(currentList.last,  ingredient)
+          val newList = (listOfLists.last._1, currentList ++ List(ingredient))
+          listOfLists.updated(listOfLists.size - 1, newList)
+          
+        }
       } else {
-        listOfLists = listOfLists ++ List((startText, List(text)))
+
+        listOfLists = listOfLists ++ List((startText, List(ingredient)))
         start = false;
       }
     }
@@ -70,9 +87,9 @@ case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
       require(list._2.size > j, "Invalid index" + j)
       list._2(j)
     }
-    def getHeadings()= {
+    def getHeadings() = {
       listOfLists.map(f => f._1)
     }
-    
+
   }
 }

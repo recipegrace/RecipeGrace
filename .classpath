@@ -49,6 +49,8 @@
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-core_2.10/jars/rogue-core_2.10-2.2.0.jar"/>
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-field_2.10/jars/rogue-field_2.10-2.2.0.jar"/>
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-index_2.10/jars/rogue-index_2.10-2.2.0.jar"/>
+  <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/net.liftmodules/google-analytics_2.6_2.10/jars/google-analytics_2.6_2.10-1.0.jar"/>
+  <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/com.h2database/h2/jars/h2-1.2.138.jar"/>
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.6.jar"/>
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.6.jar"/>
   <classpathentry kind="lib" path="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-8.1.7.v20120910.jar"/>

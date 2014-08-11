@@ -4,7 +4,7 @@
 		module="recipegrace-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20140725122045"
+		publication="20140803064024"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>

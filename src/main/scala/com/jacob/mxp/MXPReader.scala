@@ -145,7 +145,7 @@ def getMXPRecipes(location:String)= {
 	 
     	 val IngredientDetail = """^(.*)\s+(.*)\s+(.*)$""".r
     	 line match {
-	    case IngredientDetail(amout,measure,ingredient)  => Some(MXPIngredient(amout,measure,ingredient))
+	    case IngredientDetail(amout,measure,ingredient)  => Some(MXPIngredient(amout,measure,ingredient, Nil))
 	    case _=> {
 	     // println("No match"+ line)
 	      None

@@ -19,7 +19,8 @@ object MXPRecipeReader {
     })
     val recipes = for (recipe <- recipeText.getContent())
       yield (getRecipe(recipe))
-    recipes.flatMap(f => f.ingredients.getHeadings).distinct.foreach(j => println(j))
+      recipes
+  //  recipes.flatMap(f => f.ingredients.getHeadings).distinct.foreach(j => println(j))
   }
 
   def getRecipe(lines: List[String]): MXPRecipe = {
@@ -40,7 +41,7 @@ object MXPRecipeReader {
 
     val details = getDetails(result.getContent(1))
 
-    val ingredients = getIngredients(result.getContent(2).splitAt(2)._2)
+    val ingredients = getIngredients(result.getContent(2).splitAt(2)._2.filter(p => p.distinct.length() >2))
 
     val body = getBody(if (result.getSize < 4) List("No description available") else result.getContent(3))
 
@@ -72,7 +73,7 @@ object MXPRecipeReader {
       case _ => None
     }
     require(sizeTime match { case Some(x) => true case _ => false }, "Should have 'Serving Size  &  Preparation Time " + content(1))
-
+ 
     require(content(0).contains("Recipe By     :"), "Should have 'Recipe By     :' to split " + content(0))
     val recipeBy = content(0).split(":")(1)
     (recipeBy.trim(), sizeTime.get._1, sizeTime.get._2, categories)
@@ -80,15 +81,44 @@ object MXPRecipeReader {
   def getBody(content: List[String]) = {
     content.filter(p => p.trim().length() != 0)
   }
+  var saltPepper:List[String] = Nil
+  
   def getIngredients(lines: List[String]): ListOfMXPIngredient = {
     val ingredient = ListOfMXPIngredient()
     lines.foldLeft(ingredient)((acc, current) => {
-      val IngredientHeading = """^\*\*\*(.*)\*\*\*$""".r
-      val IngredientDetail = """^(.*)\s\s+(.*)\s\s+(.*)$""".r
+      val IngredientHeading1 = """^\*+([^\*]*)\*+$""".r
+        val IngredientHeading2 = """^\-+([^-].*[^-])\-+$""".r
+        val IngredientHeading3 = """^(.*):\s*$""".r
+      val IngredientDetail = """^(.*)\s\s+(.*)\s\s+(.*)\s*$""".r
+      val IngredientDetailWithNotes = """^(.*)\s\s+(.*)\s\s+(.*)\s+--\s*(.*)\s*$""".r
+      val CookingNotes = """^--\s*([^\s].*[^\s])$""".r
+     
        current.trim match {
-        case IngredientHeading(x) =>acc.startNew(x)
-        case IngredientDetail(amout, measure, ingredient) => acc.add(MXPIngredient(amout, measure, ingredient))
-        case _ => println(current)
+        case IngredientHeading1(x) =>{acc.startNew(x)}
+        case IngredientHeading2(x) =>{acc.startNew(x)}
+        case IngredientHeading3(x) =>{acc.startNew(x)}
+        case IngredientDetailWithNotes(amout, measure, ingredient, notes) => {
+        //  println(instr)
+          acc.add(MXPIngredient(amout, measure, ingredient, notes.split("--").toList))
+        }
+        case IngredientDetail(amount, measure, ingredient) => {
+  //         println(ingredient)
+          acc.add(MXPIngredient(amount, measure, ingredient, Nil))
+        }
+        case CookingNotes(instrs) => {
+       //    println("Instruc  " +instrs)
+        //  acc.add(MXPIngredient(amount, measure, ingredient, Nil))
+        }
+
+        case _ =>{ 
+        
+          //if(!current.contains("salt") && !current.contains("pepper") )
+           
+           // println("******"+current.trim)
+         //  if(current.trim.startsWith("--"))
+         //   saltPepper= current::saltPepper
+        //    
+        }
       }
      
       acc
@@ -96,8 +126,17 @@ object MXPRecipeReader {
   
    
   }
+  def endsInED(line:String):Boolean = {
+       
+      !( getEDWord(line).isEmpty)
+  }
+  def getEDWord(line:String):String = {
+    val words = line.split("\\s+")
+    val filtered=  words.filter(p=> p.endsWith("ed"))
+    if(filtered.isEmpty)"" else filtered(0)
+  }
 
-}
+} 
 
 
 
