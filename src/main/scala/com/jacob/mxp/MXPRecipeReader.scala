@@ -91,30 +91,37 @@ object MXPRecipeReader {
         val IngredientHeading3 = """^(.*):\s*$""".r
       val IngredientDetail = """^(.*)\s\s+(.*)\s\s+(.*)\s*$""".r
       val IngredientDetailWithNotes = """^(.*)\s\s+(.*)\s\s+(.*)\s+--\s*(.*)\s*$""".r
-      val CookingNotes = """^--\s*([^\s].*[^\s])$""".r
-     
+      val CookingNotes1 = """^--\s*([^\s].*[^\s])$""".r
+       val CookingNotes2 = """^\(\s*([^\s].*[^\s])\s*\).*$""".r
+     val IngredientName = """^([aA-zZ].*[^\s])$""".r
+      
        current.trim match {
         case IngredientHeading1(x) =>{acc.startNew(x)}
         case IngredientHeading2(x) =>{acc.startNew(x)}
         case IngredientHeading3(x) =>{acc.startNew(x)}
         case IngredientDetailWithNotes(amout, measure, ingredient, notes) => {
         //  println(instr)
-          acc.add(MXPIngredient(amout, measure, ingredient, notes.split("--").toList))
+          acc.add(MXPSingleIngredient(amout, measure, ingredient, notes.split("--").toList))
         }
         case IngredientDetail(amount, measure, ingredient) => {
   //         println(ingredient)
-          acc.add(MXPIngredient(amount, measure, ingredient, Nil))
+          acc.add(MXPSingleIngredient(amount, measure, ingredient))
         }
-        case CookingNotes(instrs) => {
-       //    println("Instruc  " +instrs)
-        //  acc.add(MXPIngredient(amount, measure, ingredient, Nil))
+        case CookingNotes1(notes) => {
+          acc.addNotes(notes.split("--").toList)
+        }
+        case CookingNotes2(notes) => {
+          acc.addNotes(notes.split("--").toList)
         }
 
+        case IngredientName(name) => {
+           acc.add(MXPSingleIngredient("", "",name))
+        }
         case _ =>{ 
         
           //if(!current.contains("salt") && !current.contains("pepper") )
-           
-           // println("******"+current.trim)
+            require(current.trim().length()==0, "Ingredient not caught"+ current)
+            println("******"+current.trim)
          //  if(current.trim.startsWith("--"))
          //   saltPepper= current::saltPepper
         //    

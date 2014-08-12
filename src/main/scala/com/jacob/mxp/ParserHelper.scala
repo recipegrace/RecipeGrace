@@ -2,7 +2,17 @@ package com.jacob.mxp
 
 object ParserHelper {
 
-  case class MXPIngredient(amount: String, measure: String, ingredient: String, notes: List[String])
+  trait MXPIngredient {
+    def getIngredients(): List[MXPSingleIngredient]
+  }
+
+  case class MXPSingleIngredient(amount: String, measure: String, ingredient: String, notes: List[String] = List(), optional: Boolean = false) extends MXPIngredient {
+    override def getIngredients() = this :: Nil
+  }
+
+  case class MXPSubsituteIngredients(ingredients: List[MXPSingleIngredient]) extends MXPIngredient {
+    override def getIngredients() = ingredients
+  }
   case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
     categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
     source: String, credit: String)
@@ -50,30 +60,76 @@ object ParserHelper {
 
     var startText = "Default"
     def startNew(text: String) = {
+
       start = true
       startText = text.replace("FOR THE ", "").replace("THE ", "").toLowerCase().trim.capitalize
     }
 
-    def endingWithOr(ingredients:List[MXPIngredient] ):Boolean ={
-      if(ingredients.last.notes.isEmpty &&ingredients.last.ingredient.toLowerCase().endsWith(" or")) true
-      else if ( !ingredients.last.notes.isEmpty &&ingredients.last.notes.last.toLowerCase().endsWith(" or")) true
+    def endsWith(x: MXPSingleIngredient): Boolean = {
+      if (x.notes.isEmpty && x.ingredient.toLowerCase().endsWith(" or")) true
+      else if (!x.notes.isEmpty && x.notes.last.toLowerCase().equals("or")) true
       else false
-    } 
-    
-    def add(ingredient: MXPIngredient) = {
+    }
+    def startsWith(x: MXPSingleIngredient): Boolean = {
+      // if(x.ingredient.toLowerCase().startsWith("or ")) println("HOL"+x.ingredient)
+      if (x.ingredient.toLowerCase().startsWith("or ")) true
+      else false
+    }
 
-      if (start == false) {
-       
+    def endOrStart(ingredients: List[MXPIngredient], applyFtn: (MXPSingleIngredient) => Boolean): Boolean = {
+
+      ingredients.last match {
+        case x: MXPSingleIngredient => {
+          applyFtn(x)
+        }
+        case y: MXPSubsituteIngredients => {
+          applyFtn(y.ingredients.last)
+        }
+      }
+
+    }
+
+    def addNotes(notes: List[String]) = {
+      require(!start && !listOfLists.isEmpty, "Notes as the first line, not sure!" + notes + start)
+      val lastOne = listOfLists.last._2.last match {
+        case x: MXPSingleIngredient => {
+          MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)
+        }
+        case y: MXPSubsituteIngredients => {
+          require(!y.ingredients.isEmpty, "Adding to substitutable list, so it cannot be empty")
+          val x = y.ingredients.last
+          MXPSubsituteIngredients(y.ingredients.updated(y.ingredients.size - 1,
+            MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)))
+
+        }
+      }
+      val newList = listOfLists.last._2.updated(listOfLists.last._2.size - 1, lastOne)
+      listOfLists = listOfLists.updated(listOfLists.size - 1, (listOfLists.last._1, newList))
+
+    }
+    def makeSubstituteList(last:MXPIngredient, current:MXPSingleIngredient) :MXPSubsituteIngredients= {
+      last match {
+        case x: MXPSingleIngredient => MXPSubsituteIngredients(List(x, current))
+        case y:MXPSubsituteIngredients => MXPSubsituteIngredients(y.ingredients++ List(current))
+      }
+    }
+    def add(ingredient: MXPSingleIngredient) = {
+
+      if (!start) {
 
         listOfLists = if (listOfLists.isEmpty)
           List((startText, List(ingredient)))
         else {
-        
-          val currentList = listOfLists.last._2  
-          if(endingWithOr(currentList) ) println(currentList.last,  ingredient)
-          val newList = (listOfLists.last._1, currentList ++ List(ingredient))
-          listOfLists.updated(listOfLists.size - 1, newList)
-          
+          val currentList = listOfLists.last._2
+          if (endOrStart(currentList, endsWith) || endOrStart(List(ingredient), startsWith)) {
+           // println("New", currentList.last, ingredient)
+            val substituteList = makeSubstituteList(currentList.last, ingredient)
+            val newList = (listOfLists.last._1, currentList.drop(currentList.size-1)++List(substituteList))
+            listOfLists.updated(listOfLists.size - 1, newList)
+          } else {
+            val newList = (listOfLists.last._1, currentList ++ List(ingredient))
+            listOfLists.updated(listOfLists.size - 1, newList)
+          }
         }
       } else {
 
