@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="net.liftweb"
+		module="recipegrace_2.10"
+		revision="0.0.4"
+		conf="test-internal"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container"
+		date="20140816223312"/>
+	<dependencies>
+		<module organisation="org.specs2" name="specs2_2.10">
+			<revision name="2.3.12" status="release" pubdate="20140512211229" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://specs2.org/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="66">
+				<license name="MIT-style" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="4278" time="0" location="/Users/fjacob/.ivy2/cache/org.specs2/specs2_2.10/ivy-2.3.12.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/specs2/specs2_2.10/2.3.12/specs2_2.10-2.3.12.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.3.12" rev-constraint-default="2.3.12" rev-constraint-dynamic="2.3.12" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="specs2_2.10" type="jar" ext="jar" status="no" details="" size="8928028" time="0" location="/Users/fjacob/.ivy2/cache/org.specs2/specs2_2.10/jars/specs2_2.10-2.3.12.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/specs2/specs2_2.10/2.3.12/specs2_2.10-2.3.12.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.specs2" name="classycle">
+			<revision name="1.4.3" status="release" pubdate="20140209070639" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://classycle.sourceforge.net/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="84">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2779" time="0" location="/Users/fjacob/.ivy2/cache/org.specs2/classycle/ivy-1.4.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/specs2/classycle/1.4.3/classycle-1.4.3.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="1.4.3" rev-constraint-default="1.4.3" rev-constraint-dynamic="1.4.3" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="classycle" type="jar" ext="jar" status="no" details="" size="111466" time="0" location="/Users/fjacob/.ivy2/cache/org.specs2/classycle/jars/classycle-1.4.3.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/specs2/classycle/1.4.3/classycle-1.4.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="junit" name="junit">
+			<revision name="4.11" status="release" pubdate="20121114142147" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://junit.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="83">
+				<license name="Common Public License Version 1.0" url="http://www.opensource.org/licenses/cpl1.0.txt"/>
+				<metadata-artifact status="no" details="" size="2765" time="0" location="/Users/fjacob/.ivy2/cache/junit/junit/ivy-4.11.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/junit/junit/4.11/junit-4.11.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="4.11" rev-constraint-default="4.11" rev-constraint-dynamic="4.11" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="junit" type="jar" ext="jar" status="no" details="" size="245039" time="0" location="/Users/fjacob/.ivy2/cache/junit/junit/jars/junit-4.11.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/junit/junit/4.11/junit-4.11.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.mockito" name="mockito-core">
+			<revision name="1.9.5" status="release" pubdate="20121014060649" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mockito.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="81">
+				<license name="The MIT License" url="http://code.google.com/p/mockito/wiki/License"/>
+				<metadata-artifact status="no" details="" size="2656" time="0" location="/Users/fjacob/.ivy2/cache/org.mockito/mockito-core/ivy-1.9.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="1.9.5" rev-constraint-default="1.9.5" rev-constraint-dynamic="1.9.5" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="mockito-core" type="jar" ext="jar" status="no" details="" size="1500011" time="0" location="/Users/fjacob/.ivy2/cache/org.mockito/mockito-core/jars/mockito-core-1.9.5.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.objenesis" name="objenesis">
+			<revision name="1.0" status="release" pubdate="20070516183006" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://objenesis.googlecode.com/svn/docs/index.html" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="82">
+				<license name="MIT License" url="http://objenesis.googlecode.com/svn/docs/license.html"/>
+				<metadata-artifact status="no" details="" size="2392" time="0" location="/Users/fjacob/.ivy2/cache/org.objenesis/objenesis/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.pom"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="1.9.5"/>
+				<artifacts>
+					<artifact name="objenesis" type="jar" ext="jar" status="no" details="" size="28569" time="0" location="/Users/fjacob/.ivy2/cache/org.objenesis/objenesis/jars/objenesis-1.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.hamcrest" name="hamcrest-core">
+			<revision name="1.3" status="release" pubdate="20120709170802" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="80">
+				<metadata-artifact status="no" details="" size="2397" time="0" location="/Users/fjacob/.ivy2/cache/org.hamcrest/hamcrest-core/ivy-1.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="1.3" rev-constraint-default="1.3" rev-constraint-dynamic="1.3" callerrev="2.3.12"/>
+				<caller organisation="junit" name="junit" conf="compile, runtime" rev="1.3" rev-constraint-default="1.3" rev-constraint-dynamic="1.3" callerrev="4.11"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.9.5"/>
+				<artifacts>
+					<artifact name="hamcrest-core" type="jar" ext="jar" status="no" details="" size="45024" time="0" location="/Users/fjacob/.ivy2/cache/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.3.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="1.3"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.9.5"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalacheck" name="scalacheck_2.10">
+			<revision name="1.11.3" status="release" pubdate="20140405183725" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalacheck.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="78">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2659" time="0" location="/Users/fjacob/.ivy2/cache/org.scalacheck/scalacheck_2.10/ivy-1.11.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalacheck/scalacheck_2.10/1.11.3/scalacheck_2.10-1.11.3.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="1.11.3" rev-constraint-default="1.11.3" rev-constraint-dynamic="1.11.3" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="scalacheck_2.10" type="jar" ext="jar" status="no" details="" size="884553" time="0" location="/Users/fjacob/.ivy2/cache/org.scalacheck/scalacheck_2.10/jars/scalacheck_2.10-1.11.3.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalacheck/scalacheck_2.10/1.11.3/scalacheck_2.10-1.11.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-sbt" name="test-interface">
+			<revision name="1.0" status="release" pubdate="20130628184435" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-sbt.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="79">
+				<license name="BSD" url="https://github.com/sbt/test-interface/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="2589" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-sbt/test-interface/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.pom"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.10" conf="compile, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="1.11.3"/>
+				<artifacts>
+					<artifact name="test-interface" type="jar" ext="jar" status="no" details="" size="14755" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-sbt/test-interface/jars/test-interface-1.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-concurrent_2.10">
+			<revision name="7.0.6" status="release" pubdate="20140305012435" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="76">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2812" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/ivy-7.0.6.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalaz/scalaz-concurrent_2.10/7.0.6/scalaz-concurrent_2.10-7.0.6.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="7.0.6" rev-constraint-default="7.0.6" rev-constraint-dynamic="7.0.6" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="scalaz-concurrent_2.10" type="bundle" ext="jar" status="no" details="" size="314707" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/bundles/scalaz-concurrent_2.10-7.0.6.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalaz/scalaz-concurrent_2.10/7.0.6/scalaz-concurrent_2.10-7.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-effect_2.10">
+			<revision name="7.0.6" status="release" pubdate="20140305012346" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="77">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2659" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-effect_2.10/ivy-7.0.6.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.10/7.0.6/scalaz-effect_2.10-7.0.6.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.10" conf="compile, runtime" rev="7.0.6" rev-constraint-default="7.0.6" rev-constraint-dynamic="7.0.6" callerrev="7.0.6"/>
+				<artifacts>
+					<artifact name="scalaz-effect_2.10" type="bundle" ext="jar" status="no" details="" size="429657" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-effect_2.10/bundles/scalaz-effect_2.10-7.0.6.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.10/7.0.6/scalaz-effect_2.10-7.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-core_2.10">
+			<revision name="7.0.6" status="release" pubdate="20140305012313" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="75">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2514" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-core_2.10/ivy-7.0.6.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.10/7.0.6/scalaz-core_2.10-7.0.6.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.10" conf="compile, runtime" rev="7.0.6" rev-constraint-default="7.0.6" rev-constraint-dynamic="7.0.6" callerrev="7.0.6"/>
+				<caller organisation="org.scalaz" name="scalaz-effect_2.10" conf="compile, runtime" rev="7.0.6" rev-constraint-default="7.0.6" rev-constraint-dynamic="7.0.6" callerrev="7.0.6"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="7.0.6" rev-constraint-default="7.0.6" rev-constraint-dynamic="7.0.6" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="scalaz-core_2.10" type="bundle" ext="jar" status="no" details="" size="9223035" time="0" location="/Users/fjacob/.ivy2/cache/org.scalaz/scalaz-core_2.10/bundles/scalaz-core_2.10-7.0.6.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.10/7.0.6/scalaz-core_2.10-7.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.pegdown" name="pegdown">
+			<revision name="1.2.1" status="release" pubdate="20121127115205" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://pegdown.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="68">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2769" time="0" location="/Users/fjacob/.ivy2/cache/org.pegdown/pegdown/ivy-1.2.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/pegdown/pegdown/1.2.1/pegdown-1.2.1.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="1.2.1" rev-constraint-default="1.2.1" rev-constraint-dynamic="1.2.1" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="pegdown" type="jar" ext="jar" status="no" details="" size="58609" time="0" location="/Users/fjacob/.ivy2/cache/org.pegdown/pegdown/jars/pegdown-1.2.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/pegdown/pegdown/1.2.1/pegdown-1.2.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.parboiled" name="parboiled-java">
+			<revision name="1.1.4" status="release" pubdate="20121127112702" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://parboiled.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="69">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3316" time="0" location="/Users/fjacob/.ivy2/cache/org.parboiled/parboiled-java/ivy-1.1.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/parboiled/parboiled-java/1.1.4/parboiled-java-1.1.4.pom"/>
+				<caller organisation="org.pegdown" name="pegdown" conf="compile, runtime" rev="1.1.4" rev-constraint-default="1.1.4" rev-constraint-dynamic="1.1.4" callerrev="1.2.1"/>
+				<artifacts>
+					<artifact name="parboiled-java" type="jar" ext="jar" status="no" details="" size="73180" time="0" location="/Users/fjacob/.ivy2/cache/org.parboiled/parboiled-java/jars/parboiled-java-1.1.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/parboiled/parboiled-java/1.1.4/parboiled-java-1.1.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm-util">
+			<revision name="4.1" status="release" pubdate="20121014113900" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="74">
+				<metadata-artifact status="no" details="" size="4374" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-util/ivy-4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.1/asm-util-4.1.pom"/>
+				<caller organisation="org.parboiled" name="parboiled-java" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="1.1.4"/>
+				<artifacts>
+					<artifact name="asm-util" type="jar" ext="jar" status="no" details="" size="37599" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-util/jars/asm-util-4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm-util/4.1/asm-util-4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm-analysis">
+			<revision name="4.1" status="release" pubdate="20121014113804" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="73">
+				<metadata-artifact status="no" details="" size="4382" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-analysis/ivy-4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/4.1/asm-analysis-4.1.pom"/>
+				<caller organisation="org.parboiled" name="parboiled-java" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="1.1.4"/>
+				<artifacts>
+					<artifact name="asm-analysis" type="jar" ext="jar" status="no" details="" size="19812" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-analysis/jars/asm-analysis-4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/4.1/asm-analysis-4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm-tree">
+			<revision name="4.1" status="release" pubdate="20121014113839" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="72">
+				<metadata-artifact status="no" details="" size="4369" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-tree/ivy-4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.1/asm-tree-4.1.pom"/>
+				<caller organisation="org.ow2.asm" name="asm-analysis" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="4.1"/>
+				<caller organisation="org.ow2.asm" name="asm-util" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="4.1"/>
+				<caller organisation="org.parboiled" name="parboiled-java" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="1.1.4"/>
+				<artifacts>
+					<artifact name="asm-tree" type="jar" ext="jar" status="no" details="" size="22162" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm-tree/jars/asm-tree-4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.1/asm-tree-4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.ow2.asm" name="asm">
+			<revision name="4.1" status="release" pubdate="20121014113745" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="71">
+				<metadata-artifact status="no" details="" size="3744" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm/ivy-4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.1/asm-4.1.pom"/>
+				<caller organisation="org.parboiled" name="parboiled-java" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="1.1.4"/>
+				<caller organisation="org.ow2.asm" name="asm-tree" conf="compile, runtime" rev="4.1" rev-constraint-default="4.1" rev-constraint-dynamic="4.1" callerrev="4.1"/>
+				<artifacts>
+					<artifact name="asm" type="jar" ext="jar" status="no" details="" size="47359" time="0" location="/Users/fjacob/.ivy2/cache/org.ow2.asm/asm/jars/asm-4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/ow2/asm/asm/4.1/asm-4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.parboiled" name="parboiled-core">
+			<revision name="1.1.4" status="release" pubdate="20121127112718" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://parboiled.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="70">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2657" time="0" location="/Users/fjacob/.ivy2/cache/org.parboiled/parboiled-core/ivy-1.1.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/parboiled/parboiled-core/1.1.4/parboiled-core-1.1.4.pom"/>
+				<caller organisation="org.parboiled" name="parboiled-java" conf="compile, runtime" rev="1.1.4" rev-constraint-default="1.1.4" rev-constraint-dynamic="1.1.4" callerrev="1.1.4"/>
+				<artifacts>
+					<artifact name="parboiled-core" type="jar" ext="jar" status="no" details="" size="184943" time="0" location="/Users/fjacob/.ivy2/cache/org.parboiled/parboiled-core/jars/parboiled-core-1.1.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/parboiled/parboiled-core/1.1.4/parboiled-core-1.1.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalamacros" name="quasiquotes_2.10">
+			<revision name="2.0.0-M7" status="release" pubdate="20140403160222" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/scalamacros/paradise" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="67">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html"/>
+				<metadata-artifact status="no" details="" size="2733" time="0" location="/Users/fjacob/.ivy2/cache/org.scalamacros/quasiquotes_2.10/ivy-2.0.0-M7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalamacros/quasiquotes_2.10/2.0.0-M7/quasiquotes_2.10-2.0.0-M7.pom"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="2.0.0-M7" rev-constraint-default="2.0.0-M7" rev-constraint-dynamic="2.0.0-M7" callerrev="2.3.12"/>
+				<artifacts>
+					<artifact name="quasiquotes_2.10" type="jar" ext="jar" status="no" details="" size="721002" time="0" location="/Users/fjacob/.ivy2/cache/org.scalamacros/quasiquotes_2.10/jars/quasiquotes_2.10-2.0.0-M7.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalamacros/quasiquotes_2.10/2.0.0-M7/quasiquotes_2.10-2.0.0-M7.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-plus">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910151822" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="61">
+				<metadata-artifact status="no" details="" size="8711" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-plus/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-plus/8.1.7.v20120910/jetty-plus-8.1.7.v20120910.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="jetty-plus" type="jar" ext="jar" status="no" details="" size="84864" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-plus/jars/jetty-plus-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-plus/8.1.7.v20120910/jetty-plus-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-jndi">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910151807" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="63">
+				<metadata-artifact status="no" details="" size="8350" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-jndi/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-jndi/8.1.7.v20120910/jetty-jndi-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-plus" conf="default, compile, runtime, master" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-jndi" type="jar" ext="jar" status="no" details="" size="39862" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-jndi/jars/jetty-jndi-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-jndi/8.1.7.v20120910/jetty-jndi-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty.orbit" name="javax.mail.glassfish">
+			<revision name="1.4.1.v201005082020" status="release" pubdate="20120120172330" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="64">
+				<metadata-artifact status="no" details="" size="3241" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.mail.glassfish/ivy-1.4.1.v201005082020.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.mail.glassfish/1.4.1.v201005082020/javax.mail.glassfish-1.4.1.v201005082020.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-jndi" conf="compile, runtime" rev="1.4.1.v201005082020" rev-constraint-default="1.4.1.v201005082020" rev-constraint-dynamic="1.4.1.v201005082020" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="javax.mail.glassfish" type="orbit" ext="jar" status="no" details="" size="490811" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.mail.glassfish/orbits/javax.mail.glassfish-1.4.1.v201005082020.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.mail.glassfish/1.4.1.v201005082020/javax.mail.glassfish-1.4.1.v201005082020.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty.orbit" name="javax.activation">
+			<revision name="1.1.0.v201105071233" status="release" pubdate="20120120172254" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="65">
+				<metadata-artifact status="no" details="" size="3034" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.activation/ivy-1.1.0.v201105071233.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.activation/1.1.0.v201105071233/javax.activation-1.1.0.v201105071233.pom"/>
+				<caller organisation="org.eclipse.jetty.orbit" name="javax.mail.glassfish" conf="compile, runtime" rev="1.1.0.v201105071233" rev-constraint-default="1.1.0.v201105071233" rev-constraint-dynamic="1.1.0.v201105071233" callerrev="1.4.1.v201005082020"/>
+				<artifacts>
+					<artifact name="javax.activation" type="orbit" ext="jar" status="no" details="" size="54434" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.activation/orbits/javax.activation-1.1.0.v201105071233.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.activation/1.1.0.v201105071233/javax.activation-1.1.0.v201105071233.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty.orbit" name="javax.transaction">
+			<revision name="1.1.1.v201105210645" status="release" pubdate="20111207150536" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="62">
+				<metadata-artifact status="no" details="" size="3036" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.transaction/ivy-1.1.1.v201105210645.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.transaction/1.1.1.v201105210645/javax.transaction-1.1.1.v201105210645.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-plus" conf="default, compile, runtime, master" rev="1.1.1.v201105210645" rev-constraint-default="1.1.1.v201105210645" rev-constraint-dynamic="1.1.1.v201105210645" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="javax.transaction" type="orbit" ext="jar" status="no" details="" size="29098" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.transaction/orbits/javax.transaction-1.1.1.v201105210645.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.transaction/1.1.1.v201105210645/javax.transaction-1.1.1.v201105210645.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-webapp">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910151310" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), compile(*), runtime, runtime(*), master" position="51">
+				<metadata-artifact status="no" details="" size="8516" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-webapp/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/8.1.7.v20120910/jetty-webapp-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-plus" conf="default, compile, runtime, master" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="jetty-webapp" type="jar" ext="jar" status="no" details="" size="106967" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/8.1.7.v20120910/jetty-webapp-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-servlet">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150853" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="54">
+				<metadata-artifact status="no" details="" size="8345" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-servlet/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.7.v20120910/jetty-servlet-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="default, compile, runtime, master" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-servlet" type="jar" ext="jar" status="no" details="" size="96640" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-servlet/jars/jetty-servlet-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/8.1.7.v20120910/jetty-servlet-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-security">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150833" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="55">
+				<metadata-artifact status="no" details="" size="8242" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-security/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/8.1.7.v20120910/jetty-security-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-servlet" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-security" type="jar" ext="jar" status="no" details="" size="87229" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-security/jars/jetty-security-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/8.1.7.v20120910/jetty-security-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-server">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150755" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="56">
+				<metadata-artifact status="no" details="" size="8834" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.7.v20120910/jetty-server-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-jndi" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-security" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-server" type="jar" ext="jar" status="no" details="" size="335975" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-server/jars/jetty-server-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.7.v20120910/jetty-server-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-http">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150402" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="59">
+				<metadata-artifact status="no" details="" size="8292" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/8.1.7.v20120910/jetty-http-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-http" type="jar" ext="jar" status="no" details="" size="94129" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/8.1.7.v20120910/jetty-http-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-io">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150343" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="60">
+				<metadata-artifact status="no" details="" size="8155" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-io/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/8.1.7.v20120910/jetty-io-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-http" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-io" type="jar" ext="jar" status="no" details="" size="103077" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/8.1.7.v20120910/jetty-io-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-continuation">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150419" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="58">
+				<metadata-artifact status="no" details="" size="8247" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-continuation/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-continuation/8.1.7.v20120910/jetty-continuation-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-continuation" type="jar" ext="jar" status="no" details="" size="21142" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-continuation/jars/jetty-continuation-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-continuation/8.1.7.v20120910/jetty-continuation-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-xml">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910151248" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="52">
+				<metadata-artifact status="no" details="" size="8166" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-xml/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/8.1.7.v20120910/jetty-xml-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="default, compile, runtime, master" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-xml" type="jar" ext="jar" status="no" details="" size="39026" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-xml/jars/jetty-xml-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/8.1.7.v20120910/jetty-xml-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-util">
+			<revision name="8.1.7.v20120910" status="release" pubdate="20120910150238" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="53">
+				<metadata-artifact status="no" details="" size="8520" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-util/ivy-8.1.7.v20120910.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/8.1.7.v20120910/jetty-util-8.1.7.v20120910.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-xml" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-io" conf="compile, runtime" rev="8.1.7.v20120910" rev-constraint-default="8.1.7.v20120910" rev-constraint-dynamic="8.1.7.v20120910" callerrev="8.1.7.v20120910"/>
+				<artifacts>
+					<artifact name="jetty-util" type="jar" ext="jar" status="no" details="" size="279588" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-8.1.7.v20120910.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/8.1.7.v20120910/jetty-util-8.1.7.v20120910.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty.orbit" name="javax.servlet">
+			<revision name="3.0.0.v201112011016" status="release" pubdate="20111207144915" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), runtime, compile(*), runtime(*), master" position="57">
+				<metadata-artifact status="no" details="" size="3070" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/ivy-3.0.0.v201112011016.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="3.0.0.v201112011016" rev-constraint-default="3.0.0.v201112011016" rev-constraint-dynamic="3.0.0.v201112011016" callerrev="8.1.7.v20120910"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="3.0.0.v201112011016" rev-constraint-default="3.0.0.v201112011016" rev-constraint-dynamic="3.0.0.v201112011016" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="javax.servlet" type="jar" ext="jar" status="no" details="" size="200387" time="0" location="/Users/fjacob/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/jars/javax.servlet-3.0.0.v201112011016.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="ch.qos.logback" name="logback-classic">
+			<revision name="1.0.6" status="release" pubdate="20120607164239" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://logback.qos.ch" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master, master(*), compile(*), runtime(*)" position="49">
+				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
+				<metadata-artifact status="no" details="" size="10137" time="0" location="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-classic/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="http://oss.sonatype.org/content/repositories/releases/ch/qos/logback/logback-classic/1.0.6/logback-classic-1.0.6.pom"/>
+				<caller organisation="net.liftmodules" name="google-analytics_2.6_2.10" conf="default, compile, runtime, master" rev="0.9.26" rev-constraint-default="0.9.26" rev-constraint-dynamic="0.9.26" callerrev="1.0"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="logback-classic" type="jar" ext="jar" status="no" details="" size="251784" time="0" location="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.6.jar">
+						<origin-location is-local="false" location="http://oss.sonatype.org/content/repositories/releases/ch/qos/logback/logback-classic/1.0.6/logback-classic-1.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="0.9.26" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master, default(compile)" position="-1">
+				<evicted-by rev="1.0.6"/>
+				<caller organisation="net.liftmodules" name="google-analytics_2.6_2.10" conf="default, compile, runtime, master" rev="0.9.26" rev-constraint-default="0.9.26" rev-constraint-dynamic="0.9.26" callerrev="1.0"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="0.0.4"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="ch.qos.logback" name="logback-core">
+			<revision name="1.0.6" status="release" pubdate="20120607164148" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://logback.qos.ch" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="50">
+				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
+				<metadata-artifact status="no" details="" size="9706" time="0" location="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-core/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="http://oss.sonatype.org/content/repositories/releases/ch/qos/logback/logback-core/1.0.6/logback-core-1.0.6.pom"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="compile, runtime" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="1.0.6"/>
+				<artifacts>
+					<artifact name="logback-core" type="jar" ext="jar" status="no" details="" size="349706" time="0" location="/Users/fjacob/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.6.jar">
+						<origin-location is-local="false" location="http://oss.sonatype.org/content/repositories/releases/ch/qos/logback/logback-core/1.0.6/logback-core-1.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="google-analytics_2.6_2.10">
+			<revision name="1.0" status="release" pubdate="20131022071838" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com:d6y/liftmodules-googleanalytics" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="47">
+				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3356" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/google-analytics_2.6_2.10/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/google-analytics_2.6_2.10/1.0/google-analytics_2.6_2.10-1.0.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="google-analytics_2.6_2.10" type="jar" ext="jar" status="no" details="" size="12499" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/google-analytics_2.6_2.10/jars/google-analytics_2.6_2.10-1.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/google-analytics_2.6_2.10/1.0/google-analytics_2.6_2.10-1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.h2database" name="h2">
+			<revision name="1.2.138" status="release" pubdate="20100627145248" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.h2database.com" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="48">
+				<license name="The H2 License, Version 1.0" url="http://h2database.com/html/license.html"/>
+				<metadata-artifact status="no" details="" size="2337" time="0" location="/Users/fjacob/.ivy2/cache/com.h2database/h2/ivy-1.2.138.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/h2database/h2/1.2.138/h2-1.2.138.pom"/>
+				<caller organisation="net.liftmodules" name="google-analytics_2.6_2.10" conf="default, compile, runtime, master" rev="1.2.138" rev-constraint-default="1.2.138" rev-constraint-dynamic="1.2.138" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="h2" type="jar" ext="jar" status="no" details="" size="1209100" time="0" location="/Users/fjacob/.ivy2/cache/com.h2database/h2/jars/h2-1.2.138.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/h2database/h2/1.2.138/h2-1.2.138.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.foursquare" name="rogue-lift_2.10">
+			<revision name="2.2.0" status="release" pubdate="20130712141214" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/foursquare/rogue" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="43">
+				<license name="Apache" url="http://www.opensource.org/licenses/Apache-2.0"/>
+				<metadata-artifact status="no" details="" size="3908" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-lift_2.10/ivy-2.2.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/foursquare/rogue-lift_2.10/2.2.0/rogue-lift_2.10-2.2.0.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="rogue-lift_2.10" type="jar" ext="jar" status="no" details="" size="87521" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-lift_2.10/jars/rogue-lift_2.10-2.2.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/foursquare/rogue-lift_2.10/2.2.0/rogue-lift_2.10-2.2.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.foursquare" name="rogue-core_2.10">
+			<revision name="2.2.0" status="release" pubdate="20130712141039" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/foursquare/rogue" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="44">
+				<license name="Apache" url="http://www.opensource.org/licenses/Apache-2.0"/>
+				<metadata-artifact status="no" details="" size="4364" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-core_2.10/ivy-2.2.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/foursquare/rogue-core_2.10/2.2.0/rogue-core_2.10-2.2.0.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="rogue-core_2.10" type="jar" ext="jar" status="no" details="" size="575261" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-core_2.10/jars/rogue-core_2.10-2.2.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/foursquare/rogue-core_2.10/2.2.0/rogue-core_2.10-2.2.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.foursquare" name="rogue-index_2.10">
+			<revision name="2.2.0" status="release" pubdate="20130712140912" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/foursquare/rogue" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="46">
+				<license name="Apache" url="http://www.opensource.org/licenses/Apache-2.0"/>
+				<metadata-artifact status="no" details="" size="2667" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-index_2.10/ivy-2.2.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/foursquare/rogue-index_2.10/2.2.0/rogue-index_2.10-2.2.0.pom"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="rogue-index_2.10" type="jar" ext="jar" status="no" details="" size="52395" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-index_2.10/jars/rogue-index_2.10-2.2.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/foursquare/rogue-index_2.10/2.2.0/rogue-index_2.10-2.2.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.foursquare" name="rogue-field_2.10">
+			<revision name="2.2.0" status="release" pubdate="20130712140848" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/foursquare/rogue" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="45">
+				<license name="Apache" url="http://www.opensource.org/licenses/Apache-2.0"/>
+				<metadata-artifact status="no" details="" size="2524" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-field_2.10/ivy-2.2.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/foursquare/rogue-field_2.10/2.2.0/rogue-field_2.10-2.2.0.pom"/>
+				<caller organisation="com.foursquare" name="rogue-index_2.10" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="rogue-field_2.10" type="jar" ext="jar" status="no" details="" size="2512" time="0" location="/Users/fjacob/.ivy2/cache/com.foursquare/rogue-field_2.10/jars/rogue-field_2.10-2.2.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/foursquare/rogue-field_2.10/2.2.0/rogue-field_2.10-2.2.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="extras_3.0_2.10">
+			<revision name="0.3" status="release" pubdate="20131122143448" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/eltimn/lift-extras" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="42">
+				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2805" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/extras_3.0_2.10/ivy-0.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/extras_3.0_2.10/0.3/extras_3.0_2.10-0.3.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="0.3" rev-constraint-default="0.3" rev-constraint-dynamic="0.3" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="extras_3.0_2.10" type="jar" ext="jar" status="no" details="" size="252989" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/extras_3.0_2.10/jars/extras_3.0_2.10-0.3.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/extras_3.0_2.10/0.3/extras_3.0_2.10-0.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="mongoauth_3.0_2.10">
+			<revision name="0.6-SNAPSHOT" status="integration" pubdate="20140520085645" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/eltimn/lift-mongoauth" downloaded="false" searched="true" default="false" conf="default(compile), default, compile, runtime, master" position="40">
+				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="3253" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/mongoauth_3.0_2.10/ivy-0.6-SNAPSHOT.xml" searched="true" origin-is-local="false" origin-location="https://oss.sonatype.org/content/repositories/snapshots/net/liftmodules/mongoauth_3.0_2.10/0.6-SNAPSHOT/mongoauth_3.0_2.10-0.6-SNAPSHOT.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="0.6-SNAPSHOT" rev-constraint-default="0.6-SNAPSHOT" rev-constraint-dynamic="0.6-SNAPSHOT" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="mongoauth_3.0_2.10" type="jar" ext="jar" status="no" details="" size="250821" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/mongoauth_3.0_2.10/jars/mongoauth_3.0_2.10-0.6-SNAPSHOT.jar">
+						<origin-location is-local="false" location="https://oss.sonatype.org/content/repositories/snapshots/net/liftmodules/mongoauth_3.0_2.10/0.6-SNAPSHOT/mongoauth_3.0_2.10-0.6-SNAPSHOT.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.mindrot" name="jbcrypt">
+			<revision name="0.3m" status="release" pubdate="20100516224639" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mindrot.org/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="41">
+				<license name="ISC/BSD License"/>
+				<metadata-artifact status="no" details="" size="2822" time="0" location="/Users/fjacob/.ivy2/cache/org.mindrot/jbcrypt/ivy-0.3m.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.pom"/>
+				<caller organisation="net.liftmodules" name="mongoauth_3.0_2.10" conf="default, compile, runtime, master" rev="0.3m" rev-constraint-default="0.3m" rev-constraint-dynamic="0.3m" callerrev="0.6-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jbcrypt" type="jar" ext="jar" status="no" details="" size="17750" time="0" location="/Users/fjacob/.ivy2/cache/org.mindrot/jbcrypt/jars/jbcrypt-0.3m.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-mongodb-record_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234316" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master, master(*), compile(*), runtime(*)" position="35">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3290" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mongodb-record_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-mongodb-record_2.10/2.6-M4/lift-mongodb-record_2.10-2.6-M4.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="lift-mongodb-record_2.10" type="jar" ext="jar" status="no" details="" size="324105" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mongodb-record_2.10/jars/lift-mongodb-record_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-mongodb-record_2.10/2.6-M4/lift-mongodb-record_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-mongodb_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234038" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="37">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3410" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mongodb_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-mongodb_2.10/2.6-M4/lift-mongodb_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-mongodb-record_2.10" conf="default, compile, runtime, master" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="lift-mongodb_2.10" type="jar" ext="jar" status="no" details="" size="164008" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mongodb_2.10/jars/lift-mongodb_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-mongodb_2.10/2.6-M4/lift-mongodb_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.mongodb" name="mongo-java-driver">
+			<revision name="2.12.2" status="release" pubdate="20140520090314" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mongodb.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="39">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2385" time="0" location="/Users/fjacob/.ivy2/cache/org.mongodb/mongo-java-driver/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.2/mongo-java-driver-2.12.2.pom"/>
+				<caller organisation="net.liftweb" name="lift-mongodb_2.10" conf="compile, runtime" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.9.3" rev-constraint-default="2.9.3" rev-constraint-dynamic="2.9.3" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="mongo-java-driver" type="jar" ext="jar" status="no" details="" size="589444" time="0" location="/Users/fjacob/.ivy2/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.12.2.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.2/mongo-java-driver-2.12.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.9.3" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.12.2"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.9.3" rev-constraint-default="2.9.3" rev-constraint-dynamic="2.9.3" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-json-ext_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617233950" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="38">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3679" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-json-ext_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-json-ext_2.10/2.6-M4/lift-json-ext_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-mongodb_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-json-ext_2.10" type="jar" ext="jar" status="no" details="" size="87251" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-json-ext_2.10/jars/lift-json-ext_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-json-ext_2.10/2.6-M4/lift-json-ext_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-record_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234226" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="36">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3123" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-record_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-record_2.10/2.6-M4/lift-record_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-mongodb-record_2.10" conf="default, compile, runtime, master" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="lift-record_2.10" type="jar" ext="jar" status="no" details="" size="525784" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-record_2.10/jars/lift-record_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-record_2.10/2.6-M4/lift-record_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094934" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="22">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="5216" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo_3.0_2.10/1.3-M1/fobo_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="fobo_3.0_2.10" type="jar" ext="jar" status="no" details="" size="105914" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo_3.0_2.10/jars/fobo_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo_3.0_2.10/1.3-M1/fobo_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-google-code-prettify_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094924" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="34">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3416" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-google-code-prettify_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-google-code-prettify_3.0_2.10/1.3-M1/fobo-google-code-prettify_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-google-code-prettify_3.0_2.10" type="jar" ext="jar" status="no" details="" size="55316" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-google-code-prettify_3.0_2.10/jars/fobo-google-code-prettify_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-google-code-prettify_3.0_2.10/1.3-M1/fobo-google-code-prettify_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-jquery-mobile_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094916" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="33">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3402" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-jquery-mobile_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-jquery-mobile_3.0_2.10/1.3-M1/fobo-jquery-mobile_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-jquery-mobile_3.0_2.10" type="jar" ext="jar" status="no" details="" size="257305" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-jquery-mobile_3.0_2.10/jars/fobo-jquery-mobile_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-jquery-mobile_3.0_2.10/1.3-M1/fobo-jquery-mobile_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-knockout_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094924" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="32">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3392" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-knockout_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-knockout_3.0_2.10/1.3-M1/fobo-knockout_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-knockout_3.0_2.10" type="jar" ext="jar" status="no" details="" size="181511" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-knockout_3.0_2.10/jars/fobo-knockout_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-knockout_3.0_2.10/1.3-M1/fobo-knockout_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-datatables_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094906" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="31">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3396" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-datatables_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-datatables_3.0_2.10/1.3-M1/fobo-datatables_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-datatables_3.0_2.10" type="jar" ext="jar" status="no" details="" size="510421" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-datatables_3.0_2.10/jars/fobo-datatables_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-datatables_3.0_2.10/1.3-M1/fobo-datatables_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-foundation_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094910" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="30">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3396" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-foundation_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-foundation_3.0_2.10/1.3-M1/fobo-foundation_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-foundation_3.0_2.10" type="jar" ext="jar" status="no" details="" size="68200" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-foundation_3.0_2.10/jars/fobo-foundation_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-foundation_3.0_2.10/1.3-M1/fobo-foundation_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-font-awesome_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094948" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="29">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3400" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-font-awesome_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-font-awesome_3.0_2.10/1.3-M1/fobo-font-awesome_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-font-awesome_3.0_2.10" type="jar" ext="jar" status="no" details="" size="1477021" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-font-awesome_3.0_2.10/jars/fobo-font-awesome_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-font-awesome_3.0_2.10/1.3-M1/fobo-font-awesome_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-twbs-bootstrap3_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094940" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="28">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3551" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-twbs-bootstrap3_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-twbs-bootstrap3_3.0_2.10/1.3-M1/fobo-twbs-bootstrap3_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-twbs-bootstrap3_3.0_2.10" type="jar" ext="jar" status="no" details="" size="658849" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-twbs-bootstrap3_3.0_2.10/jars/fobo-twbs-bootstrap3_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-twbs-bootstrap3_3.0_2.10/1.3-M1/fobo-twbs-bootstrap3_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-twitter-bootstrap_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094904" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="27">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3410" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-twitter-bootstrap_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-twitter-bootstrap_3.0_2.10/1.3-M1/fobo-twitter-bootstrap_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-twitter-bootstrap_3.0_2.10" type="jar" ext="jar" status="no" details="" size="849048" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-twitter-bootstrap_3.0_2.10/jars/fobo-twitter-bootstrap_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-twitter-bootstrap_3.0_2.10/1.3-M1/fobo-twitter-bootstrap_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-jquery_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094929" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="25">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3544" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-jquery_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-jquery_3.0_2.10/1.3-M1/fobo-jquery_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-jquery_3.0_2.10" type="jar" ext="jar" status="no" details="" size="32634" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-jquery_3.0_2.10/jars/fobo-jquery_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-jquery_3.0_2.10/1.3-M1/fobo-jquery_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="lift-jquery-module_3.0_2.10">
+			<revision name="2.7-M1" status="release" pubdate="20140524082650" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/karma4u101/lift-jquery-module" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="26">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3419" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/lift-jquery-module_3.0_2.10/ivy-2.7-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/lift-jquery-module_3.0_2.10/2.7-M1/lift-jquery-module_3.0_2.10-2.7-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo-jquery_3.0_2.10" conf="compile, runtime" rev="2.7-M1" rev-constraint-default="2.7-M1" rev-constraint-dynamic="2.7-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="lift-jquery-module_3.0_2.10" type="jar" ext="jar" status="no" details="" size="1057663" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/lift-jquery-module_3.0_2.10/jars/lift-jquery-module_3.0_2.10-2.7-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/lift-jquery-module_3.0_2.10/2.7-M1/lift-jquery-module_3.0_2.10-2.7-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-angularjs_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094943" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="24">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3394" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-angularjs_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-angularjs_3.0_2.10/1.3-M1/fobo-angularjs_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-angularjs_3.0_2.10" type="jar" ext="jar" status="no" details="" size="1575017" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-angularjs_3.0_2.10/jars/fobo-angularjs_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-angularjs_3.0_2.10/1.3-M1/fobo-angularjs_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftmodules" name="fobo-pace_3.0_2.10">
+			<revision name="1.3-M1" status="release" pubdate="20140524094856" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.media4u101.se/fobo-lift-template-demo/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="23">
+				<license name="The Apache Software License, Version 2.0" url="http://maven.apache.org/ref/2.1.0/maven-profile/license.html"/>
+				<metadata-artifact status="no" details="" size="3384" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-pace_3.0_2.10/ivy-1.3-M1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftmodules/fobo-pace_3.0_2.10/1.3-M1/fobo-pace_3.0_2.10-1.3-M1.pom"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="1.3-M1" rev-constraint-default="1.3-M1" rev-constraint-dynamic="1.3-M1" callerrev="1.3-M1"/>
+				<artifacts>
+					<artifact name="fobo-pace_3.0_2.10" type="jar" ext="jar" status="no" details="" size="45573" time="0" location="/Users/fjacob/.ivy2/cache/net.liftmodules/fobo-pace_3.0_2.10/jars/fobo-pace_3.0_2.10-1.3-M1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftmodules/fobo-pace_3.0_2.10/1.3-M1/fobo-pace_3.0_2.10-1.3-M1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-mapper_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234312" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="19">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3485" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mapper_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-mapper_2.10/2.6-M4/lift-mapper_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="lift-mapper_2.10" type="jar" ext="jar" status="no" details="" size="1433650" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-mapper_2.10/jars/lift-mapper_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-mapper_2.10/2.6-M4/lift-mapper_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-proto_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234048" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="21">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3121" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-proto_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-proto_2.10/2.6-M4/lift-proto_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-record_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-mapper_2.10" conf="default, compile, runtime, master" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-proto_2.10" type="jar" ext="jar" status="no" details="" size="241428" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-proto_2.10/jars/lift-proto_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-proto_2.10/2.6-M4/lift-proto_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-db_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234058" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="20">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3363" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-db_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-db_2.10/2.6-M4/lift-db_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-mapper_2.10" conf="default, compile, runtime, master" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-db_2.10" type="jar" ext="jar" status="no" details="" size="326247" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-db_2.10/jars/lift-db_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-db_2.10/2.6-M4/lift-db_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-webkit_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234213" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), compile(*), runtime, runtime(*), master" position="1">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3920" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-webkit_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-webkit_2.10/2.6-M4/lift-webkit_2.10-2.6-M4.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="0.0.4"/>
+				<caller organisation="net.liftweb" name="lift-proto_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-db_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-webkit_2.10" type="jar" ext="jar" status="no" details="" size="5961977" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-webkit_2.10/jars/lift-webkit_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-webkit_2.10/2.6-M4/lift-webkit_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-fileupload" name="commons-fileupload">
+			<revision name="1.2.2" status="release" pubdate="20100729164112" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/fileupload/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="18">
+				<metadata-artifact status="no" details="" size="6534" time="0" location="/Users/fjacob/.ivy2/cache/commons-fileupload/commons-fileupload/ivy-1.2.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.pom"/>
+				<caller organisation="net.liftweb" name="lift-webkit_2.10" conf="default, compile, runtime, master" rev="1.2.2" rev-constraint-default="1.2.2" rev-constraint-dynamic="1.2.2" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="commons-fileupload" type="jar" ext="jar" status="no" details="" size="59590" time="0" location="/Users/fjacob/.ivy2/cache/commons-fileupload/commons-fileupload/jars/commons-fileupload-1.2.2.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-util_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617234014" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="2">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="4345" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-util_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-util_2.10/2.6-M4/lift-util_2.10-2.6-M4.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-mongodb_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-db_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-webkit_2.10" conf="default, compile, runtime, master" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-util_2.10" type="jar" ext="jar" status="no" details="" size="1793494" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-util_2.10/jars/lift-util_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-util_2.10/2.6-M4/lift-util_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="nu.validator.htmlparser" name="htmlparser">
+			<revision name="1.4" status="release" pubdate="20120607145545" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://about.validator.nu/htmlparser/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="17">
+				<license name="The MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<license name="The (New) BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3770" time="0" location="/Users/fjacob/.ivy2/cache/nu.validator.htmlparser/htmlparser/ivy-1.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/nu/validator/htmlparser/htmlparser/1.4/htmlparser-1.4.pom"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="1.4" rev-constraint-default="1.4" rev-constraint-dynamic="1.4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="htmlparser" type="bundle" ext="jar" status="no" details="" size="295791" time="0" location="/Users/fjacob/.ivy2/cache/nu.validator.htmlparser/htmlparser/bundles/htmlparser-1.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/nu/validator/htmlparser/htmlparser/1.4/htmlparser-1.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.mail" name="mail">
+			<revision name="1.4.4" status="release" pubdate="20110127145123" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="15">
+				<metadata-artifact status="no" details="" size="6119" time="0" location="/Users/fjacob/.ivy2/cache/javax.mail/mail/ivy-1.4.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/javax/mail/mail/1.4.4/mail-1.4.4.pom"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="1.4.4" rev-constraint-default="1.4.4" rev-constraint-dynamic="1.4.4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="mail" type="jar" ext="jar" status="no" details="" size="494924" time="0" location="/Users/fjacob/.ivy2/cache/javax.mail/mail/jars/mail-1.4.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/javax/mail/mail/1.4.4/mail-1.4.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.activation" name="activation">
+			<revision name="1.1" status="release" pubdate="20060502194829" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="16">
+				<license name="Common Development and Distribution License (CDDL) v1.0" url="https://glassfish.dev.java.net/public/CDDLv1.0.html"/>
+				<metadata-artifact status="no" details="" size="2718" time="0" location="/Users/fjacob/.ivy2/cache/javax.activation/activation/ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.pom"/>
+				<caller organisation="javax.mail" name="mail" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.4.4"/>
+				<artifacts>
+					<artifact name="activation" type="jar" ext="jar" status="no" details="" size="62983" time="0" location="/Users/fjacob/.ivy2/cache/javax.activation/activation/jars/activation-1.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-codec" name="commons-codec">
+			<revision name="1.6" status="release" pubdate="20111202213826" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/codec/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="14">
+				<metadata-artifact status="no" details="" size="7555" time="0" location="/Users/fjacob/.ivy2/cache/commons-codec/commons-codec/ivy-1.6.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.6/commons-codec-1.6.pom"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="1.6" rev-constraint-default="1.6" rev-constraint-dynamic="1.6" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="1.6" rev-constraint-default="1.6" rev-constraint-dynamic="1.6" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="232771" time="0" location="/Users/fjacob/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.6.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.6/commons-codec-1.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="joda-time" name="joda-time">
+			<revision name="2.1" status="release" pubdate="20120222112242" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://joda-time.sourceforge.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="12">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3297" time="0" location="/Users/fjacob/.ivy2/cache/joda-time/joda-time/ivy-2.1.xml" searched="false" origin-is-local="false" origin-location="http://oss.sonatype.org/content/repositories/releases/joda-time/joda-time/2.1/joda-time-2.1.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.1" rev-constraint-default="2.1" rev-constraint-dynamic="2.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="2.1" rev-constraint-default="2.1" rev-constraint-dynamic="2.1" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.1" rev-constraint-default="2.1" rev-constraint-dynamic="2.1" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="joda-time" type="jar" ext="jar" status="no" details="" size="570478" time="0" location="/Users/fjacob/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/joda-time/joda-time/2.1/joda-time-2.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.joda" name="joda-convert">
+			<revision name="1.2" status="release" pubdate="20111027155117" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://joda-convert.sourceforge.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="13">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3114" time="0" location="/Users/fjacob/.ivy2/cache/org.joda/joda-convert/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/joda/joda-convert/1.2/joda-convert-1.2.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="joda-convert" type="jar" ext="jar" status="no" details="" size="38460" time="0" location="/Users/fjacob/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.2.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/joda/joda-convert/1.2/joda-convert-1.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-markdown_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617233925" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="11">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3091" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-markdown_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-markdown_2.10/2.6-M4/lift-markdown_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-markdown_2.10" type="jar" ext="jar" status="no" details="" size="456556" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-markdown_2.10/jars/lift-markdown_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-markdown_2.10/2.6-M4/lift-markdown_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-json_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617233933" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="8">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3262" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-json_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-json_2.10/2.6-M4/lift-json_2.10-2.6-M4.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="lift-json_2.10" type="jar" ext="jar" status="no" details="" size="486893" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-json_2.10/jars/lift-json_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-json_2.10/2.6-M4/lift-json_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.thoughtworks.paranamer" name="paranamer">
+			<revision name="2.4.1" status="release" pubdate="20120128043343" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="10">
+				<metadata-artifact status="no" details="" size="3447" time="0" location="/Users/fjacob/.ivy2/cache/com.thoughtworks.paranamer/paranamer/ivy-2.4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1.pom"/>
+				<caller organisation="net.liftweb" name="lift-json_2.10" conf="compile, runtime" rev="2.4.1" rev-constraint-default="2.4.1" rev-constraint-dynamic="2.4.1" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="paranamer" type="jar" ext="jar" status="no" details="" size="29734" time="0" location="/Users/fjacob/.ivy2/cache/com.thoughtworks.paranamer/paranamer/jars/paranamer-2.4.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scalap">
+			<revision name="2.10.4" status="release" pubdate="20140318174827" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="9">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2518" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scalap/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scalap/2.10.4/scalap-2.10.4.pom"/>
+				<caller organisation="net.liftweb" name="lift-json_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="scalap" type="jar" ext="jar" status="no" details="" size="853905" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.10.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scalap/2.10.4/scalap-2.10.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-actor_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617233906" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="5">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3123" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-actor_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-actor_2.10/2.6-M4/lift-actor_2.10-2.6-M4.pom"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="lift-actor_2.10" type="jar" ext="jar" status="no" details="" size="117479" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-actor_2.10/jars/lift-actor_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-actor_2.10/2.6-M4/lift-actor_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-common_2.10">
+			<revision name="2.6-M4" status="release" pubdate="20140617233903" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="6">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3418" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-common_2.10/ivy-2.6-M4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-common_2.10/2.6-M4/lift-common_2.10-2.6-M4.pom"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-actor_2.10" conf="compile, runtime" rev="2.6-M4" rev-constraint-default="2.6-M4" rev-constraint-dynamic="2.6-M4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+					<artifact name="lift-common_2.10" type="jar" ext="jar" status="no" details="" size="193871" time="0" location="/Users/fjacob/.ivy2/cache/net.liftweb/lift-common_2.10/jars/lift-common_2.10-2.6-M4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-common_2.10/2.6-M4/lift-common_2.10-2.6-M4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.5.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-api">
+			<revision name="1.7.2" status="release" pubdate="20121011145524" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="7">
+				<metadata-artifact status="no" details="" size="4469" time="0" location="/Users/fjacob/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.2.xml" searched="false" origin-is-local="false" origin-location="http://oss.sonatype.org/content/repositories/releases/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.pom"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="compile, runtime" rev="1.6.5" rev-constraint-default="1.6.5" rev-constraint-dynamic="1.6.5" callerrev="1.0.6"/>
+				<caller organisation="net.liftweb" name="lift-common_2.10" conf="compile, runtime" rev="1.7.2" rev-constraint-default="1.7.2" rev-constraint-dynamic="1.7.2" callerrev="2.6-M4"/>
+				<artifacts>
+					<artifact name="slf4j-api" type="jar" ext="jar" status="no" details="" size="26083" time="0" location="/Users/fjacob/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.2.jar">
+						<origin-location is-local="false" location="http://oss.sonatype.org/content/repositories/releases/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.6.5" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="1.7.2"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="compile, runtime" rev="1.6.5" rev-constraint-default="1.6.5" rev-constraint-dynamic="1.6.5" callerrev="1.0.6"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatest" name="scalatest_2.10">
+			<revision name="1.9.1" status="release" pubdate="20121222135935" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="85">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4873" time="0" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-1.9.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/1.9.1/scalatest_2.10-1.9.1.pom"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="1.9.1" rev-constraint-default="1.9.1" rev-constraint-dynamic="1.9.1" callerrev="0.0.4"/>
+				<artifacts>
+					<artifact name="scalatest_2.10" type="jar" ext="jar" status="no" details="" size="3114958" time="0" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/jars/scalatest_2.10-1.9.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/1.9.1/scalatest_2.10-1.9.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-actors">
+			<revision name="2.10.0" status="release" pubdate="20121220023006" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="86">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
+				<metadata-artifact status="no" details="" size="2548" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-actors/ivy-2.10.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-actors/2.10.0/scala-actors-2.10.0.pom"/>
+				<caller organisation="org.scalatest" name="scalatest_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.9.1"/>
+				<artifacts>
+					<artifact name="scala-actors" type="jar" ext="jar" status="no" details="" size="451307" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-actors/jars/scala-actors-2.10.0.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-actors/2.10.0/scala-actors-2.10.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-compiler">
+			<revision name="2.10.4" status="release" pubdate="20140318174738" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="3">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2809" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.4/scala-compiler-2.10.4.pom"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.3.12"/>
+				<caller organisation="org.scala-lang" name="scalap" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<artifacts>
+					<artifact name="scala-compiler" type="jar" ext="jar" status="no" details="" size="14445780" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.4/scala-compiler-2.10.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.10.4" status="release" pubdate="20140318174707" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/" downloaded="false" searched="false" default="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="4">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2829" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.pom"/>
+				<caller organisation="org.scalamacros" name="quasiquotes_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.0.0-M7"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.3.12"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<caller organisation="org.scalatest" name="scalatest_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.9.1"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="jar" ext="jar" status="no" details="" size="3203471" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.10.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="org.scalatest" name="scalatest_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.9.1"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.10.2" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="org.scalamacros" name="quasiquotes_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.0.0-M7"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.10.4" status="release" pubdate="20140318174629" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), compile(*), runtime, runtime(*), master" position="0">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
+				<metadata-artifact status="no" details="" size="2669" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.pom"/>
+				<caller organisation="net.liftweb" name="lift-mongodb-record_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="com.foursquare" name="rogue-field_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="net.liftmodules" name="fobo-twitter-bootstrap_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="lift-jquery-module_3.0_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.7-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-foundation_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-common_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-angularjs_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.0.4"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-db_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-record_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-google-code-prettify_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="org.scala-lang" name="scala-actors" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="2.10.0"/>
+				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<caller organisation="org.scalaz" name="scalaz-core_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<caller organisation="org.scalamacros" name="quasiquotes_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.0.0-M7"/>
+				<caller organisation="com.foursquare" name="rogue-index_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="org.specs2" name="specs2_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.3.12"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<caller organisation="net.liftmodules" name="fobo-twbs-bootstrap3_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="net.liftweb" name="lift-mapper_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-jquery-mobile_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-jquery_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-json-ext_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="google-analytics_2.6_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.0"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="1.11.3"/>
+				<caller organisation="org.scalaz" name="scalaz-effect_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<caller organisation="net.liftmodules" name="mongoauth_3.0_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.6-SNAPSHOT"/>
+				<caller organisation="net.liftmodules" name="fobo-pace_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-font-awesome_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-webkit_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="extras_3.0_2.10" conf="default, compile, runtime, master" rev="2.10.3" rev-constraint-default="2.10.3" rev-constraint-dynamic="2.10.3" callerrev="0.3"/>
+				<caller organisation="net.liftweb" name="lift-markdown_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-mongodb_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-json_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-datatables_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-actor_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-proto_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-knockout_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="org.scalatest" name="scalatest_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.9.1"/>
+				<artifacts>
+					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="7126372" time="0" location="/Users/fjacob/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.10.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<caller organisation="org.scalaz" name="scalaz-core_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<caller organisation="org.scalaz" name="scalaz-effect_2.10" conf="compile, runtime" rev="2.10.1" rev-constraint-default="2.10.1" rev-constraint-dynamic="2.10.1" callerrev="7.0.6"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.10.2" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="com.foursquare" name="rogue-field_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-lift_2.10" conf="default, compile, runtime, master" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="org.scalamacros" name="quasiquotes_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.0.0-M7"/>
+				<caller organisation="com.foursquare" name="rogue-index_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<caller organisation="com.foursquare" name="rogue-core_2.10" conf="compile, runtime" rev="2.10.2" rev-constraint-default="2.10.2" rev-constraint-dynamic="2.10.2" callerrev="2.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.10.3" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="net.liftmodules" name="extras_3.0_2.10" conf="default, compile, runtime, master" rev="2.10.3" rev-constraint-default="2.10.3" rev-constraint-dynamic="2.10.3" callerrev="0.3"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.10.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, master(*), runtime, compile(*), runtime(*), master, default(compile), default" position="-1">
+				<evicted-by rev="2.10.4"/>
+				<caller organisation="net.liftmodules" name="fobo-twitter-bootstrap_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-util_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="lift-jquery-module_3.0_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.7-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-foundation_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-common_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-angularjs_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test-internal, test, optional, compile, provided, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.0.4"/>
+				<caller organisation="net.liftmodules" name="fobo_3.0_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-db_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-google-code-prettify_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="org.scala-lang" name="scala-actors" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="2.10.0"/>
+				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.10.4"/>
+				<caller organisation="net.liftmodules" name="fobo-twbs-bootstrap3_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-mapper_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-jquery-mobile_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-jquery_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftmodules" name="google-analytics_2.6_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.0"/>
+				<caller organisation="net.liftmodules" name="fobo-pace_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftmodules" name="fobo-font-awesome_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-webkit_2.10" conf="default, compile, runtime, master" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-markdown_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-json_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-datatables_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="net.liftweb" name="lift-actor_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftweb" name="lift-proto_2.10" conf="compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="2.6-M4"/>
+				<caller organisation="net.liftmodules" name="fobo-knockout_3.0_2.10" conf="compile, runtime" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.3-M1"/>
+				<caller organisation="org.scalatest" name="scalatest_2.10" conf="default, compile, runtime, master" rev="2.10.0" rev-constraint-default="2.10.0" rev-constraint-dynamic="2.10.0" callerrev="1.9.1"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

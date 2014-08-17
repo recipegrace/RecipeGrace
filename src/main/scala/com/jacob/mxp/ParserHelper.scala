@@ -13,6 +13,10 @@ object ParserHelper {
   case class MXPSubsituteIngredients(ingredients: List[MXPSingleIngredient]) extends MXPIngredient {
     override def getIngredients() = ingredients
   }
+  case class RecipeNote(note: List[String]) extends MXPIngredient {
+    override def getIngredients() = Nil
+  }
+
   case class MXPRecipe(title: String, servingSize: String, cookingTime: String,
     categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
     source: String, credit: String)
@@ -90,27 +94,29 @@ object ParserHelper {
     }
 
     def addNotes(notes: List[String]) = {
-      require(!start && !listOfLists.isEmpty, "Notes as the first line, not sure!" + notes + start)
-      val lastOne = listOfLists.last._2.last match {
-        case x: MXPSingleIngredient => {
-          MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)
-        }
-        case y: MXPSubsituteIngredients => {
-          require(!y.ingredients.isEmpty, "Adding to substitutable list, so it cannot be empty")
-          val x = y.ingredients.last
-          MXPSubsituteIngredients(y.ingredients.updated(y.ingredients.size - 1,
-            MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)))
+     
+      if (listOfLists.isEmpty) List(RecipeNote(notes))
+      else {
+        val lastOne = listOfLists.last._2.last match {
+          case x: MXPSingleIngredient => {
+            MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)
+          }
+          case y: MXPSubsituteIngredients => {
+            require(!y.ingredients.isEmpty, "Adding to substitutable list, so it cannot be empty")
+            val x = y.ingredients.last
+            MXPSubsituteIngredients(y.ingredients.updated(y.ingredients.size - 1,
+              MXPSingleIngredient(x.amount, x.measure, x.ingredient, x.notes ++ notes)))
 
+          }
         }
+        val newList = listOfLists.last._2.updated(listOfLists.last._2.size - 1, lastOne)
+        listOfLists = listOfLists.updated(listOfLists.size - 1, (listOfLists.last._1, newList))
       }
-      val newList = listOfLists.last._2.updated(listOfLists.last._2.size - 1, lastOne)
-      listOfLists = listOfLists.updated(listOfLists.size - 1, (listOfLists.last._1, newList))
-
     }
-    def makeSubstituteList(last:MXPIngredient, current:MXPSingleIngredient) :MXPSubsituteIngredients= {
+    def makeSubstituteList(last: MXPIngredient, current: MXPSingleIngredient): MXPSubsituteIngredients = {
       last match {
         case x: MXPSingleIngredient => MXPSubsituteIngredients(List(x, current))
-        case y:MXPSubsituteIngredients => MXPSubsituteIngredients(y.ingredients++ List(current))
+        case y: MXPSubsituteIngredients => MXPSubsituteIngredients(y.ingredients ++ List(current))
       }
     }
     def add(ingredient: MXPSingleIngredient) = {
@@ -122,9 +128,9 @@ object ParserHelper {
         else {
           val currentList = listOfLists.last._2
           if (endOrStart(currentList, endsWith) || endOrStart(List(ingredient), startsWith)) {
-           // println("New", currentList.last, ingredient)
+            // println("New", currentList.last, ingredient)
             val substituteList = makeSubstituteList(currentList.last, ingredient)
-            val newList = (listOfLists.last._1, currentList.drop(currentList.size-1)++List(substituteList))
+            val newList = (listOfLists.last._1, currentList.drop(currentList.size - 1) ++ List(substituteList))
             listOfLists.updated(listOfLists.size - 1, newList)
           } else {
             val newList = (listOfLists.last._1, currentList ++ List(ingredient))

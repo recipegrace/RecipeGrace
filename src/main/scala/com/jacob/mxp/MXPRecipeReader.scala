@@ -2,17 +2,35 @@ package com.jacob.mxp
 
 import scala.io.Source
 import com.jacob.mxp.ParserHelper._
+import scala.util.matching.Regex
+
 
 
 object MXPRecipeReader {
-
-  val beginLine = "*  Exported from  MasterCook"
+   implicit class StringImprovements(val s: String) {
+     def matches(expression:Regex):Boolean = {
+    expression.findFirstIn(s) match {
+      case Some(_) => true;
+      case _ => false
+    }
+  }
+  }
+  
+  val beginLine = """^\s*\**\s*Exported\s+from\s+MasterCook.*\**\s*$""".r
   val endLine = """- - - - - - - - - - - - - - - - - - """
+    
+    
+    
+  def readRecipeList(files:String*) = {
+    
+     files.flatMap(f=> readRecipes(f)).toList
+  }  
+
   def readRecipes(filePath: String) = {
     val lines = Source.fromFile(filePath)("ISO-8859-1").getLines()
     val recipeText = ListOfList()
     lines.foldLeft(recipeText)((acc, current) => {
-      if (current.contains(beginLine)) acc.startNew()
+      if (current.matches(beginLine)) acc.startNew()
       else if (current.contains(endLine)) ""
       else acc.add(current)
       acc
@@ -24,6 +42,8 @@ object MXPRecipeReader {
   }
 
   def getRecipe(lines: List[String]): MXPRecipe = {
+    
+//    println(lines.mkString("ST","\n","END"))
     val recipe = ListOfList()
     //   println(lines)
     val result = lines.foldLeft(recipe)((acc, current) => {
@@ -38,7 +58,7 @@ object MXPRecipeReader {
       acc
     })
     val title = getTitle(result.getContent(0, 0))
-
+    
     val details = getDetails(result.getContent(1))
 
     val ingredients = getIngredients(result.getContent(2).splitAt(2)._2.filter(p => p.distinct.length() >2))
@@ -74,8 +94,8 @@ object MXPRecipeReader {
     }
     require(sizeTime match { case Some(x) => true case _ => false }, "Should have 'Serving Size  &  Preparation Time " + content(1))
  
-    require(content(0).contains("Recipe By     :"), "Should have 'Recipe By     :' to split " + content(0))
-    val recipeBy = content(0).split(":")(1)
+    require(content(0).contains("Recipe By     :") && content(0).split(":",-1).size>1, "Should have 'Recipe By     :' to split " + content(0))
+    val recipeBy = content(0).split(":", -1)(1)
     (recipeBy.trim(), sizeTime.get._1, sizeTime.get._2, categories)
   }
   def getBody(content: List[String]) = {
@@ -86,7 +106,7 @@ object MXPRecipeReader {
   def getIngredients(lines: List[String]): ListOfMXPIngredient = {
     val ingredient = ListOfMXPIngredient()
     lines.foldLeft(ingredient)((acc, current) => {
-      val IngredientHeading1 = """^\*+([^\*]*)\*+$""".r
+      val IngredientHeading1 = """^[\.\*]+([^\*]*)[\.\*]+$""".r
         val IngredientHeading2 = """^\-+([^-].*[^-])\-+$""".r
         val IngredientHeading3 = """^(.*):\s*$""".r
       val IngredientDetail = """^(.*)\s\s+(.*)\s\s+(.*)\s*$""".r
