@@ -28,6 +28,9 @@ libraryDependencies ++= {
     "net.liftmodules" %% "extras_3.0" % "0.3" % "compile",
     "com.foursquare" %% "rogue-lift" % "2.2.0",
     "net.liftmodules" %% "google-analytics_2.6" % "1.0",
+     "org.apache.lucene" % "lucene-core" % "4.9.0",
+     "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
+      "org.apache.lucene" % "lucene-queryparser" % "4.9.0",     
     "org.eclipse.jetty" % "jetty-webapp"        % "8.1.7.v20120910"  % "container,test",
     "org.eclipse.jetty" % "jetty-plus"          % "8.1.7.v20120910"  % "container,test", // For Jetty Config
     "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container,test" artifacts Artifact("javax.servlet", "jar", "jar"),

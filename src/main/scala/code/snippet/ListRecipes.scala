@@ -10,9 +10,9 @@ import net.liftweb.common.Logger
 import net.liftweb.mapper._
 import scala.xml._
 import net.liftweb.http.js.JsCmd
-import com.jacob.mxp._
-import com.jacob.mxp.MXPReader._
-import com.jacob.mxp.ParserHelper._
+import com.recipe.MXPRecipeReader._
+import com.recipe.MXPRecipeReader._
+import com.recipe.MXPRecipe
 class ListRecipes extends PaginatorSnippet[MXPRecipe] {
   
   override def count = findSize()
@@ -22,14 +22,14 @@ class ListRecipes extends PaginatorSnippet[MXPRecipe] {
 
 def submitHandler(recipe: MXPRecipe): JsCmd = {
     S.redirectTo("listusers", () => {
-      val recipeName = recipe.title
+      val recipeName = recipe.title 
     
       S.notice("Clicked " + recipeName  )
 
     })
   }
     def renderPage(in: NodeSeq): NodeSeq = page.flatMap(t =>
-    bind("m", in,
+    bind("m", in, 
         "name" -> t.title,
           "categories" ->t.categories.mkString(","),
         
@@ -40,13 +40,13 @@ def submitHandler(recipe: MXPRecipe): JsCmd = {
 
     
   def findSize () = {
-       val recipes =getMXPRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
+       val recipes =readRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
     //println("Total, there are "+recipes.size)
     recipes.size
   }
       
   def findPage (curPage:Int, itemsPerPage:Int) = {
-     val recipes =getMXPRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
+     val recipes =readRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
    
       val combinations =recipes.grouped(itemsPerPage)
        if (combinations.isEmpty) List() else combinations.toList(curPage)
