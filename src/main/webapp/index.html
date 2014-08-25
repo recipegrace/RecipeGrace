@@ -9,12 +9,15 @@
 
 
 <div class="row text-center">        
- <form role="form" action="recipe/list" method="post" class="lift:SaveSearch">
+ <form  class="lift:SaveSearch?form=post">
   <div class="form-group">
    
-        <img src ="images/pizza.png" height="200" class="img-rounded" />
-    <input class="form-control input-lg" id="searchTerm" placeholder="Search recipes">
- 
+        <img src ="images/food-304597_640.png" height="200" class="img-rounded" />
+    <input class="form-control input-lg" name="searchTerm" placeholder="Recipe name or ingredient">
+
+ <button type="submit" class="btn btn-primary">
+  <i class="icon-user icon-white"></i> Search Recipes
+</button>
   </div>
       </form>    </div> 
 </div>

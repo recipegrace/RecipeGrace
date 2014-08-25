@@ -3,6 +3,7 @@ package snippet
 
 import net.liftweb._
 import http._
+import util.Helpers._
 import scala.xml.NodeSeq
 import code.helpers.SessionHolder._
 /**
@@ -11,23 +12,19 @@ import code.helpers.SessionHolder._
  */
 
 object SaveSearch {
-  def render(in: NodeSeq): NodeSeq = {
-    
-    // use a Scala for-comprehension to evaluate each parameter
-    for {
-   r <- S.request if r.post_? // make sure it's a post
-   searchTerm <- S.param("searchTerm") // get the name field
-    
-    } {
-      // if everything goes as expected,
-      // display a notice and send the user 
-      S.notice("Searching ...: "+searchTerm)
-      sessionSearchTerm.set(searchTerm)
-      S.redirectTo("/list")
+
+  def render = {
+    var searchTerm = ""
+    def process() = {
+      if (searchTerm.trim().length() < 3) S.error("Too short!")
+      else {
+        S.notice("Searching ...: " + searchTerm)
+        sessionSearchTerm.set(searchTerm)
+        S.redirectTo("recipe/list")
+      }
     }
-    // pass through the HTML if we don't get a post and
-    // all the parameters
-    in
+    "name=searchTerm" #> SHtml.onSubmit(searchTerm = _) & // set the name
+      "type=submit" #> SHtml.onSubmitUnit(process)
   }
 }
- 
+

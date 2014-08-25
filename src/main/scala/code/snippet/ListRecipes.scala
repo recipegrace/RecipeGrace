@@ -10,13 +10,17 @@ import net.liftweb.common.Logger
 import net.liftweb.mapper._
 import scala.xml._
 import net.liftweb.http.js.JsCmd
-import com.recipe.MXPRecipeReader._
-import com.recipe.MXPRecipeReader._
 import com.recipe.MXPRecipe
+import com.recipe.IndexHelper._
+import org.apache.lucene.store.FSDirectory
+import java.io.File
+import code.helpers.SessionHolder._
 class ListRecipes extends PaginatorSnippet[MXPRecipe] {
   
-  override def count = findSize()
-  override def page = findPage (curPage, itemsPerPage)
+  val directory =FSDirectory.open(new File(indexPath))
+  
+  override def count = searchRecipeSize(sessionSearchTerm.get,directory)
+  override def page = searchRecipes (sessionSearchTerm.get,curPage, itemsPerPage,directory)
 
 
 
@@ -39,16 +43,6 @@ def submitHandler(recipe: MXPRecipe): JsCmd = {
   )
 
     
-  def findSize () = {
-       val recipes =readRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
-    //println("Total, there are "+recipes.size)
-    recipes.size
-  }
-      
-  def findPage (curPage:Int, itemsPerPage:Int) = {
-     val recipes =readRecipes("/Users/fjacob/backup/fjacob/projects/recipes/data/MXP/BBQ-ARC1.MXP").toList
+
    
-      val combinations =recipes.grouped(itemsPerPage)
-       if (combinations.isEmpty) List() else combinations.toList(curPage)
-  }
 }
