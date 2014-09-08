@@ -96,6 +96,7 @@ class Boot {
     val password = Menu.i("Password") / "settings" / "password" >> RequireLoggedIn 
   val register =  Menu.i("Register") / "register" >> RequireNotLoggedIn
   val listRecipes =  Menu.i("Recipes") / "recipe" /"list" >> RequireNotLoggedIn
+  val detailsMenu =  Menu.i("Recipe Details") / "recipe" /"details" >> Hidden 
   
   
 
@@ -109,7 +110,7 @@ class Boot {
   //      twbs,
         ddLabel1      >> LocGroup("topRight") >> PlaceHolder submenus (
            // divider1  >> FoBo.TBLocInfo.Divider >> profileParamMenu
-            password, register,listUsers,listRecipes,
+            password, register,listUsers,listRecipes,detailsMenu,
              Menu.i("Login") / "login" >> RequireNotLoggedIn,
             logout
             )

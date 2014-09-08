@@ -3,7 +3,6 @@ package com.recipe
 import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
 import com.recipe.MXPRecipeReader._
-import com.recipe.MXPRecipeReader._
 import java.io.File
 import scala.Array.canBuildFrom
 

@@ -1,4 +1,7 @@
 package com.recipe{
+  
+  
+  
    trait MXPIngredient {
     def getIngredients(): List[MXPSingleIngredient]
   }
@@ -151,7 +154,10 @@ package com.recipe{
     def getHeadings() = {
       listOfLists.map(f => f._1)
     }
+    
+    
 
   }
+ 
 
 }
