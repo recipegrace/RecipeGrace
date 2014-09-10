@@ -84,3 +84,5 @@ reload
 container:start
 reload
 container:start
+eclipse
+exit

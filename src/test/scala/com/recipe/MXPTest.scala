@@ -1,12 +1,13 @@
 package com.recipe
 
 import org.scalatest.FunSuite
-import org.scalatest.matchers.ShouldMatchers
 import com.recipe.MXPRecipeReader._
 import java.io.File
 import scala.Array.canBuildFrom
+import org.scalatest.MustMatchers
 
-class MXPTest extends FunSuite with ShouldMatchers{ 
+ 
+class MXPTest extends FunSuite with MustMatchers{ 
  test("MXP File parsing test 1 ") {
    
     val root ="data/MXP/"
@@ -14,7 +15,7 @@ class MXPTest extends FunSuite with ShouldMatchers{
         root+ "b3q96.txt", root+ "b4q96.txt",
          root+ "BBQ-ARC1.MXP", root+ "BBQ-ARC2.MXP"
         )
-    recipes.size should equal(2940)
+    recipes.size must equal(2940)
     }
 
  test("MXP File parsing test 2") {
@@ -24,6 +25,6 @@ class MXPTest extends FunSuite with ShouldMatchers{
      
      val recipes= (for(file <- files) yield readRecipeList(file.getAbsolutePath())).toList.flatten
 
-    recipes.size should equal(5910)
+    recipes.size must equal(5910)
     }
 }

@@ -7,7 +7,7 @@
 		revision="0.0.4"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container"
-		date="20140907221718"/>
+		date="20140909080416"/>
 	<dependencies>
 		<module organisation="ch.qos.logback" name="logback-classic">
 			<revision name="1.0.6" status="release" pubdate="20120607164239" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://logback.qos.ch" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master, master(*), compile(*), runtime(*)" position="54">

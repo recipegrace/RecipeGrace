@@ -6,7 +6,7 @@ import scala.collection.immutable.Stack
 import scala.Array.canBuildFrom
 import scala.io.Codec.string2codec
 
-object MXPRecipeReader {
+object MXPRecipeReader extends RecipeReader[MXPRecipe] {
   implicit class StringImprovements(val s: String) {
     def matches(expression: Regex): Boolean = {
       expression.findFirstIn(s) match {
@@ -19,10 +19,6 @@ object MXPRecipeReader {
   val beginLine = """^\s*\**\s*Exported\s+from\s+MasterCook.*\**\s*$""".r
   val endLine = """- - - - - - - - - - - - - - - - - - """
 
-  def readRecipeList(files: String*) = {
-
-    files.flatMap(f => readRecipes(f)).toList
-  }
 
   def equalOpenClose(s: String) = {
     s.filter(p => p.equals("(")).size == s.filter(p => p.equals(")")).size

@@ -1,8 +1,31 @@
 package com.recipe{
   
   
+  trait RecipeReader[T] {
+      def readRecipeList(files: String*) = {
+
+    files.flatMap(f => readRecipes(f)).toList
+  }
+      def readRecipes(x:String):List[T]
+      
+      def getRecipe(lines: List[String]): T
+
+  }
+ //<Recipe Name="" ID="" CookbookChapterID="" Servings="" PreparationTime="" CookingTime="" ReadyInTime=""
+  //RecipeTypes="" Source="Nestlé" WebPage="www.verybestmeals.com" CreateDate="12/03/2006">
+  case class FDXRecipe(title: String, servingSize: String, prepTime:String,cookingTime: String, readyTime:String,
+      categories: Seq[String],ingredients: Seq[FDXIngredient], process: Seq[String],
+      source:String,webPage:String,createDate:String ) 
   
-   trait MXPIngredient {
+  //<RecipeIngredient Quantity="" Unit="" Ingredient=""  IngredientName="" Heading=""/>    
+  case class FDXIngredient(amount: String, measure: String, ingredientName: String,heading:Boolean)    
+  
+  case class MXPRecipe(title: String, servingSize: String, cookingTime: String, 
+    categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
+    source: String, credit: String, originalLines:List[String]) 
+    
+    
+  trait MXPIngredient {
     def getIngredients(): List[MXPSingleIngredient]
   }
 
@@ -18,9 +41,6 @@ package com.recipe{
   }
 
 
-  case class MXPRecipe(title: String, servingSize: String, cookingTime: String, 
-    categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
-    source: String, credit: String, originalLines:List[String]) 
 
   abstract class ListOfTypes[T]() {
     var listOfLists: List[T] = List()

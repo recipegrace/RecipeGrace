@@ -35,7 +35,7 @@ class RecipeDetails extends LineHelper with RecipeToViewConverter {
   <dt>Credit</dt>
   <dd>{ifEmpty(recipe.credit)}</dd>
     <dt>Categories</dt>
-  <dd>{ifEmpty(recipe.categories.mkString(","))}</dd>
+  <dd>{ifEmpty(recipe.categories.mkString(","))	}</dd>
 </dl>
 </div>
 <div class="bs-example">

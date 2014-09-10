@@ -7,7 +7,7 @@
 		revision="0.0.4"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container"
-		date="20140907221718"/>
+		date="20140909080416"/>
 	<dependencies>
 		<module organisation="org.apache.lucene" name="lucene-queryparser">
 			<revision name="4.9.0" status="release" pubdate="20140624083724" resolver="public" artresolver="public" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="53">

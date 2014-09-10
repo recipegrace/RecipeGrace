@@ -7,15 +7,15 @@
 		revision="0.0.4"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container"
-		date="20140907221718"/>
+		date="20140909080416"/>
 	<dependencies>
 		<module organisation="org.scalatest" name="scalatest_2.10">
-			<revision name="2.2.1" status="release" pubdate="20140801055744" resolver="public" artresolver="public" homepage="http://www.scalatest.org" downloaded="true" searched="true" default="false" conf="default(compile), default, compile, runtime, master" position="90">
+			<revision name="2.2.1" status="release" pubdate="20140801055744" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="90">
 				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="successful" details="" size="5399" time="325" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-2.2.1.xml" searched="true" original-local-location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-2.2.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom"/>
+				<metadata-artifact status="no" details="" size="4582" time="0" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-2.2.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom"/>
 				<caller organisation="net.liftweb" name="recipegrace_2.10" conf="test, compile, runtime" rev="2.2.1" rev-constraint-default="2.2.1" rev-constraint-dynamic="2.2.1" callerrev="0.0.4"/>
 				<artifacts>
-					<artifact name="scalatest_2.10" type="bundle" ext="jar" status="successful" details="" size="7491143" time="3637" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/bundles/scalatest_2.10-2.2.1.jar">
+					<artifact name="scalatest_2.10" type="bundle" ext="jar" status="no" details="" size="7491143" time="0" location="/Users/fjacob/.ivy2/cache/org.scalatest/scalatest_2.10/bundles/scalatest_2.10-2.2.1.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar"/>
 					</artifact>
 				</artifacts>

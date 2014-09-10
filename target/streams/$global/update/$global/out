@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for net.liftweb#recipegrace_2.10;0.0.4 [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.liftweb#recipegrace_2.10;0.0.4->org.scala-lang#scala-library;2.10.4 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@19826d27[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@37f86333[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.4[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.4 in sbt-chain[0m
@@ -2550,19 +2550,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.liftweb#recipegrace_2.10;0.0.4->org.scalatest#scalatest_2.10;2.2.1 [test->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.10;2.2.1 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalatest#scalatest_2.10;2.2.1 {test=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m		tried /Users/fjacob/.ivy2/local/org.scalatest/scalatest_2.10/2.2.1/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scalatest#scalatest_2.10;2.2.1[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for org.scalatest#scalatest_2.10;2.2.1[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom (2.2.1)[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom.sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scalatest#scalatest_2.10;2.2.1!scalatest_2.10.pom(pom.original) (325ms)[0m
-[0m[[0mdebug[0m] [0m		tried /Users/fjacob/.ivy2/local/org.scalatest/scalatest_2.10/2.2.1/bundles/scalatest_2.10.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar[0m
-[0m[[0mdebug[0m] [0m	found org.scalatest#scalatest_2.10;2.2.1 in public[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalatest#scalatest_2.10;2.2.1[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.scalatest#scalatest_2.10;2.2.1[0m
+[0m[[0mdebug[0m] [0m	found org.scalatest#scalatest_2.10;2.2.1 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.liftweb#recipegrace_2.10;0.0.4->org.scalatest#scalatest_2.10;2.2.1 [test->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.liftweb#recipegrace_2.10;0.0.4->org.scalatest#scalatest_2.10;2.2.1 [test->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalatest#scalatest_2.10;2.2.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
@@ -4818,12 +4808,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-plus;8.1.7.v20120910!jetty-plus.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty.orbit#javax.servlet;3.0.0.v201112011016!javax.servlet.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.specs2#specs2_2.10;2.3.12!specs2_2.10.jar[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar[0m
-[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar.sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.1/scalatest_2.10-2.2.1.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalatest#scalatest_2.10;2.2.1!scalatest_2.10.jar(bundle) (3637ms)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatest#scalatest_2.10;2.2.1!scalatest_2.10.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-xml;8.1.7.v20120910!jetty-xml.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-servlet;8.1.7.v20120910!jetty-servlet.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.eclipse.jetty#jetty-util;8.1.7.v20120910!jetty-util.jar[0m
@@ -4856,7 +4841,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.objenesis#objenesis;1.0!objenesis.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 5746ms :: artifacts dl 3719ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 4659ms :: artifacts dl 81ms[0m
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 compile produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 runtime produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 test produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-test.xml[0m
@@ -4871,5 +4856,5 @@
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 pom produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 scala-tool produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for net.liftweb#recipegrace_2.10;0.0.4 container produced in /Users/fjacob/Dropbox/mine/RecipeGrace/target/resolution-cache/reports/net.liftweb-recipegrace_2.10-container.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (5746ms resolve - 3719ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (4659ms resolve - 81ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
