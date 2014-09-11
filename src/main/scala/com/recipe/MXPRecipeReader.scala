@@ -47,8 +47,12 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
         (p._1, p._2 ++ notes)
       }
 
-    })._2
+    })._2 
 
+  } 
+  
+ override def loadRecipe(content:String) = {
+    getRecipe(content.split("\\n").toList)
   }
   def getRecipe(lines: List[String]): MXPRecipe = {
     def getIngredients(lines: List[String]): ListOfMXPIngredient = {

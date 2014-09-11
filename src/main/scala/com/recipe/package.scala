@@ -8,21 +8,64 @@ package com.recipe{
   }
       def readRecipes(x:String):List[T]
       
-      def getRecipe(lines: List[String]): T
+      def loadRecipe(lines: String): T
+      
+ 
 
   }
+  
+  trait Recipe{
+    def getTitle():String
+    def getIngredientNames():Seq[String]
+    def getProcess:Seq[String]
+    def getOriginalLines:String
+    def recipeType:String
+    def getCategories:Seq[String]
+    
+  }
+  object ErrorRecipe  extends Recipe {
+        def getTitle()="Error"
+    def getIngredientNames()=Seq()
+    def getProcess=Seq()
+    def getOriginalLines =""
+    def recipeType=""
+    def getCategories=Seq()
+  }
+  
  //<Recipe Name="" ID="" CookbookChapterID="" Servings="" PreparationTime="" CookingTime="" ReadyInTime=""
   //RecipeTypes="" Source="Nestlé" WebPage="www.verybestmeals.com" CreateDate="12/03/2006">
   case class FDXRecipe(title: String, servingSize: String, prepTime:String,cookingTime: String, readyTime:String,
       categories: Seq[String],ingredients: Seq[FDXIngredient], process: Seq[String],
-      source:String,webPage:String,createDate:String ) 
+      source:String,webPage:String,createDate:String ) extends Recipe {
+    def getTitle():String= title
+    def getIngredientNames():Seq[String]= ingredients.map(f=> f.ingredientName)
+    def getProcess:Seq[String]=process
+    import net.liftweb.json._
+    import net.liftweb.json.Serialization.{write}
+    implicit val formats = Serialization.formats(NoTypeHints)
+    def getOriginalLines=write(this)
+    def recipeType="FDX"
+    def getCategories= categories
+    
+  }
   
   //<RecipeIngredient Quantity="" Unit="" Ingredient=""  IngredientName="" Heading=""/>    
   case class FDXIngredient(amount: String, measure: String, ingredientName: String,heading:Boolean)    
   
   case class MXPRecipe(title: String, servingSize: String, cookingTime: String, 
     categories: List[String], ingredients: ListOfMXPIngredient, process: List[String],
-    source: String, credit: String, originalLines:List[String]) 
+    source: String, credit: String, originalLines:List[String])  extends Recipe {
+    def getTitle():String =title
+    def getIngredientNames():Seq[String]= ingredients.getContent()
+    									   .flatMap(f=>f._2.map(p=>p.getIngredients))
+    									   .flatten
+    									   .map(f=>f.ingredient)
+    									   
+    def getProcess:Seq[String] = process
+    def getOriginalLines= originalLines.mkString("\n")
+    def recipeType="MXP"
+    def getCategories= categories
+  }
     
     
   trait MXPIngredient {

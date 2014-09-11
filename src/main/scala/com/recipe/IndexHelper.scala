@@ -21,20 +21,19 @@ import org.apache.lucene.store.RAMDirectory
 import org.apache.lucene.store.Directory
 import org.apache.lucene.index.IndexReader
 
-object IndexHelper {
+object IndexHelper { 
 
   val indexPath = "recipeIndex"
   val version = Version.LUCENE_4_9
 
-  def createIndex(recipes: List[MXPRecipe], dir: Directory) = {
-    def indexRecipes(writer: IndexWriter, f: MXPRecipe) = {
+  def createIndex(recipes: List[Recipe], dir: Directory) = {
+    def indexRecipes(writer: IndexWriter, f: Recipe) = {
       val doc = new Document();
-      doc.add(new TextField("process", new StringReader(f.process.mkString("\n"))));
-      doc.add(new TextField("title", new StringReader(f.title)));
-      val ingredientText = f.ingredients.getContent().flatMap(f => f._2).flatMap(f => f.getIngredients).map(f => f.ingredient).mkString(",")
-      doc.add(new TextField("ingredients", new StringReader(ingredientText)));
-      doc.add(new StringField("originalLines", f.originalLines.mkString("\n"), Field.Store.YES));
-
+      doc.add(new TextField("process", new StringReader(f.getProcess.mkString("\n"))));
+      doc.add(new TextField("title", new StringReader(f.getTitle)));
+      doc.add(new TextField("ingredients", new StringReader(f.getIngredientNames.mkString(","))));
+      doc.add(new StringField("originalLines", f.getOriginalLines.mkString("\n"), Field.Store.YES));
+      doc.add(new StringField("recipeType", f.recipeType, Field.Store.YES));
       writer.addDocument(doc);
     }
     require(!recipes.isEmpty, "Something wrong, indexing an empty list")
@@ -67,12 +66,28 @@ object IndexHelper {
     val results = searcher.search(query, 100);
     results.scoreDocs
   }
-  def searchRecipes(text: String, curPage: Int, itemsPerPage: Int, reader: Directory): List[MXPRecipe] = {
+  def loadRecipe(recipe:Recipe):Recipe = {
+   loadRecipe (recipe.recipeType, recipe.getOriginalLines)
+  }
+  def loadRecipe(recipeType:String, content:String):Recipe = {
+    recipeType match {
+      case "FDX" => FDXRecipeReader.loadRecipe(content)
+      case  "MXP" =>MXPRecipeReader.loadRecipe(content)
+      case _=> ErrorRecipe
+    }
+  }
+  def searchRecipes(text: String, curPage: Int, itemsPerPage: Int, reader: Directory): List[Recipe] = {
     
   
     val searcher = new IndexSearcher(DirectoryReader.open(reader));
-
-    val allPages= (for (i <- getScoreDocs(text, reader).toList.map(f => searcher.doc(f.doc).get("originalLines").split("\\n").toList)) yield getRecipe(i))
+    val contentAndType=getScoreDocs(text, reader).toList.map(
+    				f => (searcher.doc(f.doc).get("originalLines"),searcher.doc(f.doc).get("recipeType"))
+    				)
+    
+    val allPages= (
+        
+         
+        for (i <- contentAndType) yield loadRecipe(i._1,i._2))
       .toList
       .grouped(itemsPerPage)
       

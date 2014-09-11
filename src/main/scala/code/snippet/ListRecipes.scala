@@ -15,8 +15,8 @@ import com.recipe.IndexHelper._
 import org.apache.lucene.store.FSDirectory
 import java.io.File
 import code.helpers.SessionHolder._
-
-class ListRecipes extends PaginatorSnippet[MXPRecipe] {
+import com.recipe._
+class ListRecipes extends PaginatorSnippet[Recipe] {
   
   val directory =FSDirectory.open(new File(indexPath))
   
@@ -25,18 +25,18 @@ class ListRecipes extends PaginatorSnippet[MXPRecipe] {
 
 
 
-def submitHandler(recipe: MXPRecipe): JsCmd = {
+def submitHandler(recipe: Recipe): JsCmd = {
     S.redirectTo("details", () => {
-      val recipeName = recipe.title 
-       selectedRecipe.set( (recipe.originalLines,"MXP"))
-      S.notice("Selected " + recipeName  )
+    
+       selectedRecipe.set(Some(recipe))
+      S.notice("Selected " + recipe.getTitle )
 
     })
   }	
     def renderPage(in: NodeSeq): NodeSeq = page.flatMap(t =>
     bind("m", in, 
-        "name" -> t.title,
-          "categories" ->t.categories.mkString(","),
+        "name" -> t.getTitle,
+          "categories" ->t.getCategories.mkString(","),
         
           "submit" -> SHtml.submit("( ͡° ͜ʖ ͡°)", () => submitHandler(t))
         )

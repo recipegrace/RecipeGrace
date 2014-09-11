@@ -16,6 +16,12 @@ object FDXRecipeReader extends RecipeReader[FDXRecipe] {
     val xml = XML.loadFile(file)
     readRecipes(xml)
   }
+  def loadRecipe(content:String) = {
+    import net.liftweb.json._
+    import net.liftweb.json.Serialization.{read}
+    implicit val formats = Serialization.formats(NoTypeHints)
+    read[FDXRecipe](content)
+  }
 
   def readRecipes(xml: Elem): List[FDXRecipe] = {
 
