@@ -2,7 +2,7 @@ package com.recipe
 
 import org.scalatest.FunSuite
 import org.specs2.matcher.ShouldMatchers
-import code.helpers.TestHelper
+import com.recipe.TestHelper
 import org.scalatest.matchers.MustMatchers
 
 class MXPRecipetoViewConverterTest extends FunSuite with MustMatchers with TestHelper with RecipeToViewConverter {
@@ -14,7 +14,7 @@ class MXPRecipetoViewConverterTest extends FunSuite with MustMatchers with TestH
 			1                cup  apple cider -- to 2 cups 
 			1                cup  sugar -- more or less
      */
-     val a =convertMXPToIngrTable(testRecipe.ingredients.getContent)
+     val a =convertMXPToIngrTable(testRecipe)
      println(a)
      a.size must equal (3)
      a(0) must equal ( ("1 cup"),("sugar -- more or less"))

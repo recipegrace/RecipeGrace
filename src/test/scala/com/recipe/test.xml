@@ -1,0 +1,43 @@
+
+<div>
+	<div class="row text-center">
+		<h2>
+			<r:title />
+		</h2>
+		<dl>
+			<dt>Credit</dt>
+			<dd>{ifEmpty(recipe.credit)}</dd>
+			<dt>Categories</dt>
+			<dd>{ifEmpty(recipe.categories.mkString(",")) }</dd>
+		</dl>
+	</div>
+	<div class="bs-example">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Specification</th>
+					<th>Ingredient name and notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				{convertMXPToIngrTable(recipe.ingredients.getContent)
+				.map(f=>{
+
+				<tr>
+					<td> {f._1}</td>
+					<td> {f._2}</td>
+				</tr>
+				} )
+
+				}
+
+			</tbody>
+		</table>
+	</div>
+	<div class="row text-center">
+		{mergeNonEmptyLines(recipe.process)
+		.map(f=> {
+		<p> {f}</p>
+		})}
+	</div>
+</div>

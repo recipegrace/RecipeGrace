@@ -5,11 +5,14 @@ import java.io.File
 import com.recipe.RecipeToViewConverter
 import com.recipe.MXPIngredient
 import com.recipe.MXPRecipe
+import com.recipe.FDXRecipe
 
 object SearchApp extends App with RecipeToViewConverter {
 
     val directory =FSDirectory.open(new File(indexPath))
-  val recipes =searchRecipes ("indian flat bread",0, 10,directory)
+  val recipes =searchRecipes ("Beets & Carrots With West Indian Spices",0, 10,directory)
   
-  println(convertMXPToIngrTable(recipes(2).asInstanceOf[MXPRecipe].ingredients.getContent).mkString("\n"))
-}
+  //println(convertFDXToIngrTable(recipes(0).asInstanceOf[FDXRecipe].ingredients).mkString("\n"))
+  println( recipes(0).getProcess)
+  println(mergeLines( recipes(0).getProcess).size)
+} 

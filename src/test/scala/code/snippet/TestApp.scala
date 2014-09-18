@@ -1,7 +1,7 @@
 package code.snippet
 
 import com.recipe.LineHelper
-import code.helpers.TestHelper
+import com.recipe.TestHelper
 import net.liftweb._
 import net.liftweb.http._
 import util._

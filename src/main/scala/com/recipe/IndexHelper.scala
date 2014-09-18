@@ -16,12 +16,12 @@ import org.apache.lucene.index.Term
 import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.search.IndexSearcher
 import org.apache.lucene.queryparser.classic.QueryParser
-import com.recipe.MXPRecipeReader._
 import org.apache.lucene.store.RAMDirectory
 import org.apache.lucene.store.Directory
 import org.apache.lucene.index.IndexReader
+import net.liftweb.common.Loggable
 
-object IndexHelper { 
+object IndexHelper extends Loggable{ 
 
   val indexPath = "recipeIndex"
   val version = Version.LUCENE_4_9
@@ -32,7 +32,7 @@ object IndexHelper {
       doc.add(new TextField("process", new StringReader(f.getProcess.mkString("\n"))));
       doc.add(new TextField("title", new StringReader(f.getTitle)));
       doc.add(new TextField("ingredients", new StringReader(f.getIngredientNames.mkString(","))));
-      doc.add(new StringField("originalLines", f.getOriginalLines.mkString("\n"), Field.Store.YES));
+      doc.add(new StringField("originalLines", f.getOriginalLines, Field.Store.YES));
       doc.add(new StringField("recipeType", f.recipeType, Field.Store.YES));
       writer.addDocument(doc);
     }
@@ -69,11 +69,11 @@ object IndexHelper {
   def loadRecipe(recipe:Recipe):Recipe = {
    loadRecipe (recipe.recipeType, recipe.getOriginalLines)
   }
-  def loadRecipe(recipeType:String, content:String):Recipe = {
-    recipeType match {
+  def loadRecipe(content:String,recipeType:String):Recipe = {
+   
+    recipeType.trim match {
       case "FDX" => FDXRecipeReader.loadRecipe(content)
       case  "MXP" =>MXPRecipeReader.loadRecipe(content)
-      case _=> ErrorRecipe
     }
   }
   def searchRecipes(text: String, curPage: Int, itemsPerPage: Int, reader: Directory): List[Recipe] = {
@@ -95,19 +95,36 @@ object IndexHelper {
 
   }
 
-  def main(args: Array[String]) {
+  def createIndexAndReport(recipes:List[Recipe]) = {
+      val directory = FSDirectory.open(new File(indexPath))
+    createIndex(recipes, directory)
+    val reader = DirectoryReader.open(directory)
+    println("Total documents:" + reader.numDocs())
+  }
+  
+  def createNew(args: Array[String]) {
     val root = "data/MXP/mxpfiles"
     val files = new File(root).listFiles()
+    import com.recipe.MXPRecipeReader._
     val recipes = (for (file <- files) yield readRecipeList(file.getAbsolutePath())).toList.flatten
     for {
       files <- Option(new File(indexPath).listFiles)
       file <- files
     } file.delete()
-    val directory = FSDirectory.open(new File(indexPath))
-    createIndex(recipes, directory)
-    val reader = DirectoryReader.open(directory)
-    println("Total documents:" + reader.numDocs())
+      createIndexAndReport(recipes)
 
+  }
+    def main(args: Array[String]) {
+    val root = "data/FDX"
+    val files = new File(root).listFiles()
+    import com.recipe.FDXRecipeReader._
+    val recipes = (
+        for (file <- files
+         if(file.getName().toLowerCase().endsWith("fdx"))
+        ) 
+          yield readRecipeList(file.getAbsolutePath())).toList.flatten
+    createIndexAndReport(recipes)
+     
   }
 
 }

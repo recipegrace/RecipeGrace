@@ -3,7 +3,6 @@ package snippet
 import net.liftweb._
 import net.liftweb.http._
 import util._
-import common._
 import Helpers._
 import TimeHelpers._
 import net.liftweb.common.Logger
@@ -29,18 +28,18 @@ def submitHandler(recipe: Recipe): JsCmd = {
     S.redirectTo("details", () => {
     
        selectedRecipe.set(Some(recipe))
-      S.notice("Selected " + recipe.getTitle )
+      S.notice( recipe.getTitle )
 
     })
   }	
-    def renderPage(in: NodeSeq): NodeSeq = page.flatMap(t =>
+  
+    def renderPage(in: NodeSeq): NodeSeq = page.flatMap(t =>{
+     	 val button = <span>{t.getTitle}</span>
     bind("m", in, 
-        "name" -> t.getTitle,
-          "categories" ->t.getCategories.mkString(","),
-        
-          "submit" -> SHtml.submit("( ͡° ͜ʖ ͡°)", () => submitHandler(t))
+        "name" -> SHtml.link("", () => submitHandler(t),button),
+          "categories" ->t.getCategories.mkString(",")
         )
-
+    }	
   )
 
     

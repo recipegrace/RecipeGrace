@@ -3,7 +3,6 @@ package snippet
 
 import scala.xml.NodeSeq
 import com.recipe.MXPRecipeReader._
-import code.helpers.TestHelper
 import net.liftweb._
 import net.liftweb.http._
 import util._
