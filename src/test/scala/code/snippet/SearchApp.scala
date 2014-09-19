@@ -14,5 +14,5 @@ object SearchApp extends App with RecipeToViewConverter {
   
   //println(convertFDXToIngrTable(recipes(0).asInstanceOf[FDXRecipe].ingredients).mkString("\n"))
   println( recipes(0).getProcess)
-  println(mergeLines( recipes(0).getProcess).size)
+  println(mergeLines( recipes(0).getProcess))
 } 

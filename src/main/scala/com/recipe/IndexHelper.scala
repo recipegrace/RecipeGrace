@@ -26,6 +26,10 @@ object IndexHelper extends Loggable{
   val indexPath = "recipeIndex"
   val version = Version.LUCENE_4_9
 
+  val indexed = init()
+  
+
+  
   def createIndex(recipes: List[Recipe], dir: Directory) = {
     def indexRecipes(writer: IndexWriter, f: Recipe) = {
       val doc = new Document();
@@ -102,21 +106,30 @@ object IndexHelper extends Loggable{
     println("Total documents:" + reader.numDocs())
   }
   
-  def createNew(args: Array[String]) {
-    val root = "data/MXP/mxpfiles"
-    val files = new File(root).listFiles()
-    import com.recipe.MXPRecipeReader._
-    val recipes = (for (file <- files) yield readRecipeList(file.getAbsolutePath())).toList.flatten
+  def deleteIndex() = {
     for {
       files <- Option(new File(indexPath).listFiles)
       file <- files
-    } file.delete()
-      createIndexAndReport(recipes)
-
+    } file.delete()    
   }
-    def main(args: Array[String]) {
-    val root = "data/FDX"
-    val files = new File(root).listFiles()
+  def createMXP()= {
+    val root= getClass().getClassLoader().getResource("data/MXP/mxpfiles")
+  
+    val files = new File(root.toURI()).listFiles()
+    import com.recipe.MXPRecipeReader._
+    val recipes = (for (file <- files) yield readRecipeList(file.getAbsolutePath())).toList.flatten
+      createIndexAndReport(recipes)
+  }
+
+  def init() = {
+    deleteIndex()
+    createMXP()
+    createFDX()
+  }
+
+    def createFDX()= {
+    val root =  getClass().getClassLoader().getResource("data/FDX")
+    val files = new File(root.toURI()).listFiles()
     import com.recipe.FDXRecipeReader._
     val recipes = (
         for (file <- files

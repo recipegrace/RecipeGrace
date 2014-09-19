@@ -2,8 +2,8 @@ package com.recipe
 
 import org.scalatest.FunSuite
 import org.specs2.matcher.ShouldMatchers
-import com.recipe.TestHelper
-import org.scalatest.matchers.MustMatchers
+
+import org.scalatest.MustMatchers
 
 class MXPRecipetoViewConverterTest extends FunSuite with MustMatchers with TestHelper with RecipeToViewConverter {
 
@@ -20,5 +20,6 @@ class MXPRecipetoViewConverterTest extends FunSuite with MustMatchers with TestH
      a(0) must equal ( ("1 cup"),("sugar -- more or less"))
      a(1) must equal ( ("1 cup"),("apple cider -- to 2 cups"))
     a(2) must equal ( ("3 pounds"),("apples"))
+     
   }
 }

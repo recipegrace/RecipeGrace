@@ -135,8 +135,10 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
       val recipeBy = content(0).split(":", -1)(1)
       (recipeBy.trim(), sizeTime.get._1, sizeTime.get._2, categories)
     }
-    def getBody(content: List[String]) = {
-      content.filter(p => p.trim().length() != 0)
+    def getBody(content: List[List[String]]):List[String] = {
+      content.foldLeft(List():List[String])((p,q)=>{
+        q.mapConserve(f=>f.trim).mkString(" ").trim :: p
+      })
     }
 
     //    println(lines.mkString("ST","\n","END"))
@@ -159,7 +161,8 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
 
     val ingredients = getIngredients(result.getContent(2).splitAt(2)._2.filter(p => p.distinct.length() > 2))
 
-    val body = getBody(if (result.getSize < 4) List("No description available") else result.getContent(3))
+//    println("inside this"+result.getContent().slice(3, result.getContent().size).flatten)
+    val body = if (result.getSize < 4) List("No description available") else getBody(result.getContent().splitAt(3)._2)
 
     MXPRecipe(title, details._2, details._3, details._4, ingredients, body, "Online BBQ Mailing List", details._1, lines)
   }

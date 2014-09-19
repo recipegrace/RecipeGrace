@@ -61,7 +61,7 @@ trait RecipeToViewConverter {
 				p.updated(p.size-1, p.last.trim +" " + q)
 				else p
 			}
-			else q::p
+			else q+:p
 
 		})
 		else lines
