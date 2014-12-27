@@ -4,7 +4,7 @@ version := "0.0.4"
 
 organization := "net.liftweb"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.1"
 
 resolvers ++= Seq("snapshots"     at "https://oss.sonatype.org/content/repositories/snapshots",
                   "staging"       at "https://oss.sonatype.org/content/repositories/staging",
@@ -22,12 +22,12 @@ libraryDependencies ++= {
   Seq(
     "net.liftweb"       %% "lift-webkit"        % liftVersion        % "compile",
     "net.liftweb"       %% "lift-mapper"        % liftVersion        % "compile",
-    "net.liftmodules"   %% "fobo_3.0"           % "1.3-M1"     % "compile",
+    "net.liftmodules"   %% "fobo_2.6"           % "1.3"     % "compile",
     "net.liftweb" %% "lift-mongodb-record" % liftVersion % "compile",
     "net.liftmodules" %% "mongoauth_3.0" % "0.6-SNAPSHOT",
-    "net.liftmodules" %% "extras_3.0" % "0.3" % "compile",
-    "com.foursquare" %% "rogue-lift" % "2.2.0",
-    "net.liftmodules" %% "google-analytics_2.6" % "1.0",
+    "net.liftmodules" %% "extras_2.6" % "0.4-SNAPSHOT" % "compile",
+    "com.foursquare" %% "rogue-lift" % "2.4.0",
+    "net.liftmodules" %% "google-analytics_2.6" % "1.1-SNAPSHOT",
      "org.apache.lucene" % "lucene-core" % "4.9.0",
      "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
       "org.apache.lucene" % "lucene-queryparser" % "4.9.0",     

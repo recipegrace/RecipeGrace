@@ -1,1 +1,12 @@
-/bin
+bin/
+project/project/
+target/
+project/target/
+companyIndex/
+.worksheet/
+.files/
+.cache
+.classpath
+.tests/
+.project
+.settings/
