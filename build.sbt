@@ -8,6 +8,7 @@ scalaVersion := "2.11.1"
 
 resolvers ++= Seq("snapshots"     at "https://oss.sonatype.org/content/repositories/snapshots",
                   "staging"       at "https://oss.sonatype.org/content/repositories/staging",
+                  "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository",
                   "releases"      at "https://oss.sonatype.org/content/repositories/releases"
                  )
 
@@ -30,7 +31,8 @@ libraryDependencies ++= {
     "net.liftmodules" %% "google-analytics_2.6" % "1.1-SNAPSHOT",
      "org.apache.lucene" % "lucene-core" % "4.9.0",
      "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
-      "org.apache.lucene" % "lucene-queryparser" % "4.9.0",     
+      "org.apache.lucene" % "lucene-queryparser" % "4.9.0",   
+       "org.dbpedia.extraction" % "core" % "4.0-SNAPSHOT",
     "org.eclipse.jetty" % "jetty-webapp"        % "8.1.7.v20120910"  % "container,test",
     "org.eclipse.jetty" % "jetty-plus"          % "8.1.7.v20120910"  % "container,test", // For Jetty Config
     "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container,test" artifacts Artifact("javax.servlet", "jar", "jar"),
