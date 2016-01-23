@@ -88,7 +88,7 @@ class Boot {
     val ddLabel1   = Menu.i("UserDDLabel") / "ddlabel1"
     val home       = Menu.i("Home") / "index" 
     
-    val isAdmin = If(() => Try{User.currentUser.get.email.toString== "feroshjacob@gmail.com"}.getOrElse(false),
+    val isAdmin = If(() => Try{User.currentUser.map(_.email).head._1== "feroshjacob@gmail.com"}.getOrElse(false),
                   () => RedirectResponse("/login"))
  val loginToken = buildLoginTokenMenu
   val logout =buildLogoutMenu

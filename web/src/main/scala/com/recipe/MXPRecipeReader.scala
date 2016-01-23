@@ -21,25 +21,25 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
 
 
   def equalOpenClose(s: String) = {
-    s.filter(p => p.equals("(")).size == s.filter(p => p.equals(")")).size
+    s.count(p => p.equals("(")) == s.filter(p => p.equals(")")).size
   }
 
   def mergeBracket(list: List[String]): List[String] = {
-    val init: (Stack[String], List[String]) = (Stack(), List())
+    val init: (List[String], List[String]) = (List(), List())
     list.foldLeft(init)((p, q) => {
 
       if (q.trim.startsWith("(") && !q.trim.endsWith(")")) {
 
         val notes: List[String] = List("-- " + q.trim.substring(1))
-        (p._1.push("("), p._2 ++ notes)
+        ("(":: p._1, p._2 ++ notes)
       } else if (!q.trim.startsWith("(") && q.trim.endsWith(")") && !equalOpenClose(q.trim)) {
-        require(!p._1.isEmpty, "Stack cannot be empty: " + q.trim)
+        require(p._1.nonEmpty, "Stack cannot be empty: " + q.trim)
         val notes: List[String] = List("-- " + q.trim.substring(0, q.trim().length() - 1))
-        (p._1.pop, p._2 ++ notes)
+        (p._1.tail, p._2 ++ notes)
       } else if (q.trim.startsWith("(") && q.trim.endsWith(")")) {
         val notes: List[String] = List("-- " + q.trim.substring(1, q.trim().length() - 1))
         (p._1, p._2 ++ notes)
-      } else if (!p._1.isEmpty) {
+      } else if (p._1.nonEmpty) {
         val notes: List[String] = List("-- " + q)
         (p._1, p._2 ++ notes)
       } else {
@@ -186,10 +186,10 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
     val stack = Stack()
     lines.foldLeft((recipeText, stack))((acc, current) => {
       if (current.matches(beginLine)) {
-        require(stack.isEmpty == true, "Unclosed bracket")
+        require(stack.isEmpty, "Unclosed bracket")
         acc._1.startNew()
       } else if (current.contains(endLine)) {
-        require(stack.isEmpty == true, "Unclosed bracket")
+        require(stack.isEmpty, "Unclosed bracket")
         ""
       } else
         acc._1.add(current)

@@ -92,7 +92,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
       case Full(at) => find(at.userId.get).map(user => {
         if (user.validate.length == 0) {
           user.verified(true)
-          user.save
+          user.save(false)
           logUserIn(user)
           at.delete_!
           RedirectResponse(loginTokenAfterUrl)
@@ -126,7 +126,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
         |
         |Thanks,
         |%s
-      """.format(siteName, token.get.url, sysUsername).stripMargin
+      """.format(siteName, token.map(f=> f.url).head, sysUsername).stripMargin
 
     sendMail(
       From(MongoAuth.systemFancyEmail),
