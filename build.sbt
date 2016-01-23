@@ -4,13 +4,16 @@ version := "0.0.4"
 
 organization := "net.liftweb"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.7"
+
+val liftVersion = "2.6.2"
 
 resolvers ++= Seq("snapshots"     at "https://oss.sonatype.org/content/repositories/snapshots",
                   "staging"       at "https://oss.sonatype.org/content/repositories/staging",
-                  "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository",
-                  "releases"      at "https://oss.sonatype.org/content/repositories/releases"
-                 )
+                  "releases"      at "https://oss.sonatype.org/content/repositories/releases",
+  "Recipegrace repo" at "http://recipegrace.com:8080/nexus/content/repositories/releases/",
+  "Recipegrace snapshots" at "http://recipegrace.com:8080/nexus/content/repositories/snapshots/",
+"MVN Repo" at "http://central.maven.org/maven2/")
 
 seq(webSettings :_*)
 
@@ -19,7 +22,6 @@ unmanagedResourceDirectories in Test <+= (baseDirectory) { _ / "src/main/webapp"
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 
 libraryDependencies ++= {
-  val liftVersion = "2.6-M4"
   Seq(
     "net.liftweb"       %% "lift-webkit"        % liftVersion        % "compile",
     "net.liftweb"       %% "lift-mapper"        % liftVersion        % "compile",
@@ -32,7 +34,7 @@ libraryDependencies ++= {
      "org.apache.lucene" % "lucene-core" % "4.9.0",
      "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
       "org.apache.lucene" % "lucene-queryparser" % "4.9.0",   
-       "org.dbpedia.extraction" % "core" % "4.0-SNAPSHOT",
+       "org.dbpedia.extraction" % "core" % "4.1-SNAPSHOT",
     "org.eclipse.jetty" % "jetty-webapp"        % "8.1.7.v20120910"  % "container,test",
     "org.eclipse.jetty" % "jetty-plus"          % "8.1.7.v20120910"  % "container,test", // For Jetty Config
     "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container,test" artifacts Artifact("javax.servlet", "jar", "jar"),
