@@ -1,7 +1,7 @@
 package code.helpers
 
+import com.recipegrace.web.Recipe
 import net.liftweb.http.SessionVar
-import com.recipe._
 
 object SessionHolder {
   object sessionSearchTerm extends SessionVar[String]("")

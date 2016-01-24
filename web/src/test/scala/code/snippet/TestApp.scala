@@ -19,7 +19,7 @@ object TestApp extends App {
 implicit val formats = Serialization.formats(NoTypeHints)
 
 
- val recipes =FDXRecipeReader.readRecipes( "data/FDX/diabetic.fdx")
+ val recipes =FDXRecipeReader.readRecipes("data/FDX/diabetic.fdx")
  
  recipes.map(f=> println(write(f)))
 

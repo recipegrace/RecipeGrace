@@ -1,20 +1,17 @@
 package code
 package snippet
+
+import com.recipegrace.web.Recipe
 import net.liftweb._
 import net.liftweb.http._
 import util._
 import Helpers._
-import TimeHelpers._
-import net.liftweb.common.Logger
-import net.liftweb.mapper._
 import scala.xml._
 import net.liftweb.http.js.JsCmd
-import com.recipe.MXPRecipe
-import com.recipe.IndexHelper._
 import org.apache.lucene.store.FSDirectory
 import java.io.File
 import code.helpers.SessionHolder._
-import com.recipe._
+import com.recipegrace.web.IndexHelper._
 class ListRecipes extends PaginatorSnippet[Recipe] {
   
   val directory =FSDirectory.open(new File(indexPath))

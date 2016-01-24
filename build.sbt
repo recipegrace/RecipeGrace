@@ -3,12 +3,13 @@ val projectName = "RecipeGrace"
 val projectVersion = "0.0.5"
 val projectOrg = "com.recipegrace"
 val liftVersion = "2.6.2"
-val electricVersion = "0.0.9"
+val electricVersion = "0.0.11"
 
 lazy val coreSettings= Seq(
 scalaVersion := "2.11.7",
 version := projectVersion,
 organization := projectOrg,
+unmanagedResourceDirectories in Compile += baseDirectory.value / "resources",
 resolvers ++= Seq("snapshots"     at "https://oss.sonatype.org/content/repositories/snapshots",
                   "releases"      at "https://oss.sonatype.org/content/repositories/releases",
   "Recipegrace repo" at "http://recipegrace.com:8080/nexus/content/repositories/releases/",
@@ -22,6 +23,7 @@ libraryDependencies ++= {
      "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
       "org.apache.lucene" % "lucene-queryparser" % "4.9.0",   
        "com.recipegrace.electric" %% "core" %electricVersion,
+    "net.liftweb" %% "lift-json"% liftVersion,
        "org.dbpedia.extraction" % "core" % "4.1-SNAPSHOT")})
 
 lazy val core = (project in file("core")).

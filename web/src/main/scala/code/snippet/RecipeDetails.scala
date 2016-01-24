@@ -1,25 +1,16 @@
 package code
 package snippet
 
-import scala.xml.NodeSeq
-import com.recipe.MXPRecipeReader._
-import net.liftweb._
-import net.liftweb.http._
-import util._
-import common._
-import Helpers._
-import com.recipe.LineHelper
-import com.recipe.MXPSingleIngredient
-import com.recipe.MXPSingleIngredient
-import com.recipe.RecipeToViewConverter
 import code.helpers.SessionHolder._
-import com.recipe.ErrorRecipe
-class RecipeDetails extends LineHelper with RecipeToViewConverter {
+import com.recipegrace.web.{ErrorRecipe, Recipe, RecipeToViewConverter}
+
+import scala.xml.NodeSeq
+class RecipeDetails extends RecipeToViewConverter {
 
 
-  def getSelectedRecipe() = {
+  def getSelectedRecipe():Recipe = {
      selectedRecipe.get match {
-       case Some(x) => x
+       case Some(x:Recipe) => x
        case _=>ErrorRecipe
        
      }
@@ -27,7 +18,7 @@ class RecipeDetails extends LineHelper with RecipeToViewConverter {
   }
   def showDetails(in: NodeSeq): NodeSeq = {
     
-    recipeToView(getSelectedRecipe)
+    recipeToView(getSelectedRecipe())
      
   }
 }
