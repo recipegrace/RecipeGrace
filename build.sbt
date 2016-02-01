@@ -21,7 +21,8 @@ libraryDependencies ++= {
   Seq(
      "org.apache.lucene" % "lucene-core" % "4.9.0",
      "org.apache.lucene" % "lucene-analyzers-common" % "4.9.0",
-      "org.apache.lucene" % "lucene-queryparser" % "4.9.0",   
+      "org.apache.lucene" % "lucene-queryparser" % "4.9.0",
+       "org.slf4j" % "slf4j-simple" % "1.6.4",
        "com.recipegrace.electric" %% "core" %electricVersion,
     "net.liftweb" %% "lift-json"% liftVersion,
        "org.dbpedia.extraction" % "core" % "4.1-SNAPSHOT")})
