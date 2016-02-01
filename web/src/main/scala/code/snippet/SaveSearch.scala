@@ -3,8 +3,8 @@ package snippet
 
 import net.liftweb._
 import http._
+import net.liftweb.http.js.JsCmds.FocusOnLoad
 import util.Helpers._
-import scala.xml.NodeSeq
 import code.helpers.SessionHolder._
 /**
  * A snippet that grabs the query parameters
@@ -23,7 +23,7 @@ object SaveSearch {
         S.redirectTo("recipe/list")
       }
     }
-    "name=searchTerm" #> SHtml.onSubmit(searchTerm = _) & // set the name
+    "name=searchTerm" #> FocusOnLoad(SHtml.text("",f=> searchTerm=f,  "class"->"form-control input-lg" )) & // set the name
       "type=submit" #> SHtml.onSubmitUnit(process)
   }
 }
