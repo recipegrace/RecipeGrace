@@ -41,11 +41,11 @@ object IndexHelper extends ZipArchive{
       //    println("added")
     })
     // println("closed")
+    logger.info("index created at " + dir)
     writer.close();
   }
   def searchRecipeSize(text: String, reader: Directory): Int = {
 
-    //DirectoryReader.open(FSDirectory.open(new File(indexPath)));
     getScoreDocs(text, reader).size
 
   }
@@ -93,7 +93,7 @@ object IndexHelper extends ZipArchive{
       val directory = FSDirectory.open(new File(indexPath))
     createIndex(recipes, directory)
     val reader = DirectoryReader.open(directory)
-    println("Total documents:" + reader.numDocs())
+    logger.info("Total recipes:" + reader.numDocs())
   }
   
   def deleteIndex() = {
@@ -103,7 +103,6 @@ object IndexHelper extends ZipArchive{
     } file.delete()    
   }
   def createMXP(filePath:String)= {
-    println("It is here!")
 
     val files = new File(filePath).listFiles()
     val recipes = (for (file <- files) yield MXPRecipeReader.readRecipeList(file.getAbsolutePath())).toList.flatten
@@ -112,15 +111,14 @@ object IndexHelper extends ZipArchive{
 
   def init() = {
     deleteIndex()
-   // val root= getClass().getClassLoader().getResourceAsStream("data/MXP/mxpfiles")
      val root= unZip(this.getClass().getResourceAsStream("/data.zip"))
 
-    println(root)
 
 
 
     createMXP(root+ File.separator+ "data" + File.separator+"MXP" + File.separator+ "mxpfiles" )
     createFDX(root+ File.separator+"data" + File.separator+"FDX")
+    logger.info("index created!")
   }
 
     def createFDX(filePath:String)= {
