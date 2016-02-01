@@ -7,6 +7,7 @@ import scala.io.Source
 import scala.util.matching.Regex
 
 object MXPRecipeReader extends RecipeReader[MXPRecipe] {
+
   implicit class StringImprovements(val s: String) {
     def matches(expression: Regex): Boolean = {
       expression.findFirstIn(s) match {
@@ -31,7 +32,7 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
       if (q.trim.startsWith("(") && !q.trim.endsWith(")")) {
 
         val notes: List[String] = List("-- " + q.trim.substring(1))
-        ("(":: p._1, p._2 ++ notes)
+        ("(" :: p._1, p._2 ++ notes)
       } else if (!q.trim.startsWith("(") && q.trim.endsWith(")") && !equalOpenClose(q.trim)) {
         require(p._1.nonEmpty, "Stack cannot be empty: " + q.trim)
         val notes: List[String] = List("-- " + q.trim.substring(0, q.trim().length() - 1))
@@ -47,14 +48,15 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
         (p._1, p._2 ++ notes)
       }
 
-    })._2 
+    })._2
 
-  } 
-  
- override def loadRecipe(content:String) = {
-  //  println("MXP here-" +content)
+  }
+
+  override def loadRecipe(content: String) = {
+    //  println("MXP here-" +content)
     getRecipe(content.split("\\n").toList)
   }
+
   def getRecipe(lines: List[String]): MXPRecipe = {
     def getIngredients(lines: List[String]): ListOfMXPIngredient = {
       val ingredient = ListOfMXPIngredient()
@@ -69,9 +71,15 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
         val IngredientName = """^([aA-zZ].*[^\s])$""".r
 
         current.trim match {
-          case IngredientHeading1(x) => { acc.startNew(x) }
-          case IngredientHeading2(x) => { acc.startNew(x) }
-          case IngredientHeading3(x) => { acc.startNew(x) }
+          case IngredientHeading1(x) => {
+            acc.startNew(x)
+          }
+          case IngredientHeading2(x) => {
+            acc.startNew(x)
+          }
+          case IngredientHeading3(x) => {
+            acc.startNew(x)
+          }
           case IngredientDetailWithNotes(amout, measure, ingredient, notes) => {
             //  println(instr)
             acc.add(MXPSingleIngredient(amout, measure, ingredient, notes.split("--").toList))
@@ -135,9 +143,9 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
       val recipeBy = content(0).split(":", -1)(1)
       (recipeBy.trim(), sizeTime.get._1, sizeTime.get._2, categories)
     }
-    def getBody(content: List[List[String]]):List[String] = {
-      content.foldLeft(List():List[String])((p,q)=>{
-        q.mapConserve(f=>f.trim).mkString(" ").trim :: p
+    def getBody(content: List[List[String]]): List[String] = {
+      content.foldLeft(List(): List[String])((p, q) => {
+        q.mapConserve(f => f.trim).mkString(" ").trim :: p
       })
     }
 
@@ -161,7 +169,7 @@ object MXPRecipeReader extends RecipeReader[MXPRecipe] {
 
     val ingredients = getIngredients(result.getContent(2).splitAt(2)._2.filter(p => p.distinct.length() > 2))
 
-//    println("inside this"+result.getContent().slice(3, result.getContent().size).flatten)
+    //    println("inside this"+result.getContent().slice(3, result.getContent().size).flatten)
     val body = if (result.getSize < 4) List("No description available") else getBody(result.getContent().splitAt(3)._2)
 
     MXPRecipe(title, details._2, details._3, details._4, ingredients, body, "Online BBQ Mailing List", details._1, lines)

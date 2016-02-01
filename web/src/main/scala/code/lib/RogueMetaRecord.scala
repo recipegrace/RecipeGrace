@@ -1,12 +1,10 @@
 package code
 package lib
 
-import config.MongoConfig
-
-import net.liftweb._
-import mongodb.record._
-
+import code.config.MongoConfig
 import com.foursquare.rogue._
+import net.liftweb._
+import net.liftweb.mongodb.record._
 
 /**
   * A custom MongoMetaRecord that adds Rogue and an injectable MongoIdentifier.

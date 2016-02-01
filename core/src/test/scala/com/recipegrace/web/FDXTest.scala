@@ -1,9 +1,8 @@
-package com.recipe
+package com.recipegrace.web
 
 import com.recipegrace.web.FDXRecipeReader
+import org.scalatest.{FunSuite, MustMatchers}
 
-import org.scalatest.MustMatchers
-import org.scalatest.FunSuite
 class FDXTest extends FunSuite with MustMatchers {
 
   val recipeXML =
@@ -16,7 +15,7 @@ class FDXTest extends FunSuite with MustMatchers {
         <Recipe Name="Barbecued Beef Sandwiches" ID="478" CookbookChapterID="69" Servings="8" PreparationTime="7" CookingTime="75" ReadyInTime="82" RecipeTypes="Barbecue, Main Dish, Meat, Sandwich" Source="Nestlé" WebPage="www.verybestmeals.com" CreateDate="12/03/2006">
           <RecipeIngredients>
             <RecipeIngredient Quantity="1 1/2" Unit="lbs" Ingredient="ground beef" Heading="N" LinkType="Ingredient" IngredientID="13302" IngredientName="Beef, ground, lean, (approximately 21% fat), raw" MeasureID="62750" Measure="1 lb" MeasureQuantity="1.5000" MeasureGramWeight="453.600"/>
-                </RecipeIngredients>
+          </RecipeIngredients>
           <RecipeProcedures>
             <RecipeProcedure Heading="N">
               <ProcedureText>
@@ -49,19 +48,19 @@ class FDXTest extends FunSuite with MustMatchers {
     val recipe = FDXRecipeReader.readRecipes(recipeXML)
     val fDXrecipe = recipe.head
     fDXrecipe.title must equal((recipeXML \\ "Recipe" \ "@Name").toString)
-   fDXrecipe.categories.mkString(",")  must equal ((recipeXML\\ "@RecipeTypes").toString)
-     fDXrecipe.cookingTime must equal ((recipeXML\\ "@CookingTime").toString)
-  fDXrecipe.readyTime must equal ((recipeXML\\ "@ReadyInTime").toString)
-     fDXrecipe.createDate must equal ((recipeXML\\ "@CreateDate").toString)
-    fDXrecipe.source must equal ((recipeXML\\"Recipe" \"@Source").toString)
-      fDXrecipe.servingSize must equal ((recipeXML\\ "@Servings").toString)
-    fDXrecipe.webPage must equal ((recipeXML\\ "@WebPage").toString)
+    fDXrecipe.categories.mkString(",") must equal((recipeXML \\ "@RecipeTypes").toString)
+    fDXrecipe.cookingTime must equal((recipeXML \\ "@CookingTime").toString)
+    fDXrecipe.readyTime must equal((recipeXML \\ "@ReadyInTime").toString)
+    fDXrecipe.createDate must equal((recipeXML \\ "@CreateDate").toString)
+    fDXrecipe.source must equal((recipeXML \\ "Recipe" \ "@Source").toString)
+    fDXrecipe.servingSize must equal((recipeXML \\ "@Servings").toString)
+    fDXrecipe.webPage must equal((recipeXML \\ "@WebPage").toString)
     val ingredient = fDXrecipe.ingredients.head
-    ingredient.amount must equal ((recipeXML\\ "@Quantity").toString)
-    ingredient.measure must equal ((recipeXML\\ "@Unit").toString)
-        ingredient.ingredientName must equal ((recipeXML\\ "@IngredientName").toString)
-     ingredient.heading must equal (false)
-    
+    ingredient.amount must equal((recipeXML \\ "@Quantity").toString)
+    ingredient.measure must equal((recipeXML \\ "@Unit").toString)
+    ingredient.ingredientName must equal((recipeXML \\ "@IngredientName").toString)
+    ingredient.heading must equal(false)
+
   }
 
 }

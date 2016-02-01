@@ -1,36 +1,40 @@
 <div data-lift="lift:surround?with=default;at=content">
-	
 
-		<table  class='table borderless'
-        id="example" width="100%">
+
+    <table class='table borderless'
+           id="example" width="100%">
         <thead>
-            <tr>					<th>Name</th>
-					<th>Categories</th>
-            </tr>
+        <tr>
+            <th>Name</th>
+            <th>Categories</th>
+        </tr>
         </thead>
         <tbody>
-            <tr data-lift="lift:ListRecipes.renderPage">
-                <td><m:name>
-                    </m:name></td>
-                <td><m:categories>
-                    </m:categories></td>
-      
-               </tr>
+        <tr data-lift="lift:ListRecipes.renderPage">
+            <td>
+                <m:name>
+                </m:name>
+            </td>
+            <td>
+                <m:categories>
+                </m:categories>
+            </td>
+
+        </tr>
         </tbody>
     </table>
-		
 
-	
-	<div data-lift="lift:ListRecipes.paginate">
-		<nav:first></nav:first>
-		|
-		<nav:prev></nav:prev>
-		| |
-		<nav:next></nav:next>
-		|
-		<nav:last></nav:last>
-		|
-		<nav:records></nav:records>
-	</div>
+
+    <div data-lift="lift:ListRecipes.paginate">
+        <nav:first></nav:first>
+        |
+        <nav:prev></nav:prev>
+        | |
+        <nav:next></nav:next>
+        |
+        <nav:last></nav:last>
+        |
+        <nav:records></nav:records>
+    </div>
 
 </div>

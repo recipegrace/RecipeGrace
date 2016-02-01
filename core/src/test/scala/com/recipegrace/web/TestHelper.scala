@@ -1,9 +1,11 @@
-package com.recipe
+package com.recipegrace.web
 
 import com.recipegrace.web.MXPRecipeReader
-import MXPRecipeReader._
+import com.recipegrace.web.MXPRecipeReader._
+
 trait TestHelper {
- val recipeLines = """
+  val recipeLines =
+    """
 			Apple Butter 
 
 			Recipe By     :"Edria Roberts" <edriajean@hotmail.com>
@@ -19,12 +21,12 @@ trait TestHelper {
 
 			I make apple butter
 		 	in my crock pot and it is very easy and very tasty. 
-   
+
 			Pour into jelly jars and put in refrigerator or 
 		 	freezer - after they cool. 
 
 
 
-			"""
-    val testRecipe = getRecipe(recipeLines.split("\\n", -1).toList)
+    			"""
+  val testRecipe = getRecipe(recipeLines.split("\\n", -1).toList)
 }

@@ -1,7 +1,7 @@
 package com.recipegrace.web
 
-import net.liftweb.json.{Serialization, NoTypeHints}
 import net.liftweb.json.Serialization._
+import net.liftweb.json.{NoTypeHints, Serialization}
 
 import scala.xml.{Elem, Node, NodeSeq, XML}
 
@@ -12,11 +12,13 @@ object FDXRecipeReader extends RecipeReader[FDXRecipe] {
     readRecipes(xml).head
 
   }
+
   def readRecipes(file: String): List[FDXRecipe] = {
     val xml = XML.loadFile(file)
     readRecipes(xml)
   }
-  def loadRecipe(content:String) = {
+
+  def loadRecipe(content: String) = {
     implicit val formats = Serialization.formats(NoTypeHints)
     read[FDXRecipe](content)
   }
@@ -24,7 +26,7 @@ object FDXRecipeReader extends RecipeReader[FDXRecipe] {
   def readRecipes(xml: Elem): List[FDXRecipe] = {
 
     def toFDXRecipe(recipeNode: Node): FDXRecipe = {
-     
+
       def &(node: Node, x: String) = {
         node.attribute(x).getOrElse("").toString
       }
@@ -58,7 +60,7 @@ object FDXRecipeReader extends RecipeReader[FDXRecipe] {
       FDXRecipe(&&("Name"), &&("Servings"), &&("PreparationTime"), &&("CookingTime"), &&("ReadyInTime"), categories, ingredients, process, &&("Source"), &&("WebPage"), &&("CreateDate"))
 
     }
-    val recipeNodes = (xml  \ "Recipes" \ "Recipe")
+    val recipeNodes = (xml \ "Recipes" \ "Recipe")
 
     (for (recipe <- recipeNodes)
       yield (toFDXRecipe(recipe))).toList

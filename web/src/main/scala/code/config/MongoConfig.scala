@@ -1,17 +1,14 @@
 package code
 package config
 
-import net.liftweb._
-import common._
-import http._
-import json._
-import mongodb._
-import util.Props
-import com.mongodb.{ DBAddress, MongoClient }
-import net.liftweb.util.ConnectionIdentifier
-import net.liftweb.util.DefaultConnectionIdentifier
-import com.mongodb.MongoCredential
 import java.util.Arrays
+
+import com.mongodb.{DBAddress, MongoClient, MongoCredential}
+import net.liftweb._
+import net.liftweb.common._
+import net.liftweb.http._
+import net.liftweb.mongodb._
+import net.liftweb.util.{ConnectionIdentifier, DefaultConnectionIdentifier, Props}
 
 object MongoConfig extends Factory with Loggable {
 
@@ -20,10 +17,10 @@ object MongoConfig extends Factory with Loggable {
 
   def init() {
     /**
-     * First checks for existence of mongo.default.url. If not found, then
-     * checks for mongo.default.host, port, and name. Uses defaults if those
-     * are not found.
-     */
+      * First checks for existence of mongo.default.url. If not found, then
+      * checks for mongo.default.host, port, and name. Uses defaults if those
+      * are not found.
+      */
     val defaultDbAddress = Props.get("mongo.default.url")
       .map(url => new DBAddress(url))
       .openOr(new DBAddress(
@@ -53,6 +50,7 @@ object MongoConfig extends Factory with Loggable {
         logger.info("MongoDB inited: %s".format(defaultDbAddress.toString))
     }
   }
-  val admin ="feroshjacob@gmail.com"
+
+  val admin = "feroshjacob@gmail.com"
 }
 
