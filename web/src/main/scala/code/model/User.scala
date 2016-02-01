@@ -1,41 +1,38 @@
 package code
 package model
 
-import lib.RogueMetaRecord
+import code.lib.RogueMetaRecord
+import net.liftmodules.mongoauth._
+import net.liftmodules.mongoauth.model._
+import net.liftweb._
+import net.liftweb.common._
+import net.liftweb.http.{BooleanField => _, StringField => _, _}
+import net.liftweb.mongodb.record.field._
+import net.liftweb.record.field._
 import org.bson.types.ObjectId
 import org.joda.time.DateTime
-import net.liftweb._
-import common._
-import http.{StringField => _, BooleanField => _, _}
-import mongodb.record.field._
-import record.field._
-import util.FieldContainer
-import net.liftmodules.mongoauth._
-import net.liftmodules.mongoauth.field._
-import net.liftmodules.mongoauth.model._
-import net.liftweb.http.SHtml.ElemAttr
 
-class User private () extends ProtoAuthUser[User] with ObjectIdPk[User] {
+class User private() extends ProtoAuthUser[User] with ObjectIdPk[User] {
   def meta = User
 
   def userIdAsString: String = id.toString
 
 
   object name extends StringField(this, 64) {
-    override def displayName = "Name"  
+    override def displayName = "Name"
 
     override def validations =
       valMaxLen(64, "Name must be 64 characters or less") _ ::
-      super.validations
+        super.validations
 
 
-      
   }
 
   def whenCreated: DateTime = new DateTime(id.get.getTimestamp())
 }
 
 object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User] with Loggable {
+
   import mongodb.BsonDSL._
 
   override def collectionName = "user.users"
@@ -44,19 +41,21 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
   createIndex((username.name -> 1), true)
 
   def findByEmail(in: String): Box[User] = find(email.name, in)
-  
-  def emailExists(str:String):Boolean = {
-   findByEmail(str) match {
+
+  def emailExists(str: String): Boolean = {
+    findByEmail(str) match {
       case Full(x) => true
-      case _=> false
+      case _ => false
     }
   }
-    def userNameExists(str:String):Boolean = {
-   findByUsername(str) match {
+
+  def userNameExists(str: String): Boolean = {
+    findByUsername(str) match {
       case Full(x) => true
-      case _=> false
+      case _ => false
     }
   }
+
   def findByUsername(in: String): Box[User] = find(username.name, in)
 
   def findByStringId(id: String): Box[User] =
@@ -64,6 +63,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
     else Empty
 
   override def onLogIn: List[User => Unit] = List(user => User.loginCredentials.remove())
+
   override def onLogOut: List[Box[User] => Unit] = List(
     x => logger.debug("User.onLogOut called."),
     boxedUser => boxedUser.foreach { u =>
@@ -87,7 +87,9 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
     val resp = S.param("token").flatMap(LoginToken.findByStringId) match {
       case Full(at) if (at.expires.isExpired) => {
         at.delete_!
-        RedirectWithState(indexUrl, RedirectState(() => { S.error("Login token has expired") }))
+        RedirectWithState(indexUrl, RedirectState(() => {
+          S.error("Login token has expired")
+        }))
       }
       case Full(at) => find(at.userId.get).map(user => {
         if (user.validate.length == 0) {
@@ -100,10 +102,16 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
         else {
           at.delete_!
           regUser(user)
-          RedirectWithState(registerUrl, RedirectState(() => { S.notice("Please complete the registration form") }))
+          RedirectWithState(registerUrl, RedirectState(() => {
+            S.notice("Please complete the registration form")
+          }))
         }
-      }).openOr(RedirectWithState(indexUrl, RedirectState(() => { S.error("User not found") })))
-      case _ => RedirectWithState(indexUrl, RedirectState(() => { S.warning("Login token not provided") }))
+      }).openOr(RedirectWithState(indexUrl, RedirectState(() => {
+        S.error("User not found")
+      })))
+      case _ => RedirectWithState(indexUrl, RedirectState(() => {
+        S.warning("Login token not provided")
+      }))
     }
 
     Full(resp)
@@ -126,7 +134,7 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
         |
         |Thanks,
         |%s
-      """.format(siteName, token.map(f=> f.url).head, sysUsername).stripMargin
+      """.format(siteName, token.map(f => f.url).head, sysUsername).stripMargin
 
     sendMail(
       From(MongoAuth.systemFancyEmail),
@@ -159,7 +167,9 @@ object User extends User with ProtoAuthUserMeta[User] with RogueMetaRecord[User]
 
   // used during login process
   object loginCredentials extends SessionVar[LoginCredentials](LoginCredentials(""))
+
   object regUser extends SessionVar[User](createRecord.email(loginCredentials.is.email))
+
 }
 
 case class LoginCredentials(email: String, isRememberMe: Boolean = false)

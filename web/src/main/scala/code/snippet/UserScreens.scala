@@ -1,25 +1,20 @@
 package code
 package snippet
 
-import model._
-import scala.xml._
-import net.liftweb._
-import common._
-import http.{ LiftScreen, S }
-import util.FieldError
-import util.Helpers._
-import http.js.JsCmd
-import http.js.JsCmds._
-import net.liftmodules.extras.Gravatar
+import code.model._
 import net.liftmodules.mongoauth.model.ExtSession
-import net.liftmodules.mongoauth.LoginRedirect
-import net.liftmodules.mongoauth.MongoAuth
-import code.config.MongoConfig
+import net.liftweb._
+import net.liftweb.common._
+import net.liftweb.http.S
+import net.liftweb.http.js.JsCmds._
+import net.liftweb.util.FieldError
+import net.liftweb.util.Helpers._
 
 /*
  * Use for editing the currently logged in user only.
  */
 sealed trait BaseCurrentUserScreen extends BaseScreen {
+
   object userVar extends ScreenVar(User.currentUser.openOr(User.createRecord))
 
   override def localSetup {
@@ -39,13 +34,14 @@ object PasswordScreen extends BaseCurrentUserScreen {
   val confirmPasswordField = password(S ? "Password", "",
     trim,
     valMinLen(6, "Password too short"), "class" -> "form-control")
-    
-    def passWordMatch() = 
-     if (passwordField.is != confirmPasswordField.is)
-    List(FieldError(confirmPasswordField, "Passwords must match"))
+
+  def passWordMatch() =
+    if (passwordField.is != confirmPasswordField.is)
+      List(FieldError(confirmPasswordField, "Passwords must match"))
     else Nil
-    
-      override def validations =   passWordMatch _  :: super.validations
+
+  override def validations = passWordMatch _ :: super.validations
+
   def finish() {
     userVar.is.password(passwordField.is)
     userVar.is.password.hashIt
@@ -63,7 +59,7 @@ object LoginScreen extends BaseCurrentUserScreen {
 
   val passWord = password(S ? "Password", "",
     trim, valMinLen(2, "Name too short"),
-     "class" -> "form-control")
+    "class" -> "form-control")
 
   val savePassWord = field(S ? "Save password?", false)
 
@@ -81,7 +77,7 @@ object LoginScreen extends BaseCurrentUserScreen {
           User.logUserIn(user, true)
           if (savePassWord) User.createExtSession(user.id.get)
           else ExtSession.deleteExtCookie()
-          S.notice("Welcome "+ user.username)
+          S.notice("Welcome " + user.username)
         } else {
           S.error("Invalid credentials")
           Noop
@@ -101,9 +97,10 @@ object LoginScreen extends BaseCurrentUserScreen {
 object RegisterScreen extends BaseCurrentUserScreen {
 
   override def validations = registterationValidations _ :: super.validations
+
   val pwdMinLength = 6
   val pwdMaxLength = 34
-  val userName = field(S ? "Username","",
+  val userName = field(S ? "Username", "",
     trim,
     valMinLen(6, "Name too short"), "class" -> "form-control")
   val email = field(S ? "Email address", "",
@@ -123,29 +120,30 @@ object RegisterScreen extends BaseCurrentUserScreen {
   override def localSetup {
     Referer("/")
   }
-  
-  def validEmail(text:String):Boolean = {
-     val Email = """(\w+)@([\w\.]+)""".r
-     Email.findFirstIn(text) match {
-       case Some(x) => true
-       case _ => false
-     }
-  }
-  def registterationValidations(): Errors = {
-    if(!validEmail(email))
-       List(FieldError(email, "Not a valid email"))
-   else if (passwordField.is != confirmPasswordField.is)
-      List(FieldError(confirmPasswordField, "Passwords must match"))
-    else if( User.emailExists(email.is.toString())) {
-       List(FieldError(email, "Email already exists, please go to the login page for the remainder email"))
+
+  def validEmail(text: String): Boolean = {
+    val Email = """(\w+)@([\w\.]+)""".r
+    Email.findFirstIn(text) match {
+      case Some(x) => true
+      case _ => false
     }
-    else if( User.userNameExists(userName.is.toString())) {
-       List(FieldError(userName, "username already exists, please change your username"))
-    }
-    else Nil   
   }
 
-  def finish() { 
+  def registterationValidations(): Errors = {
+    if (!validEmail(email))
+      List(FieldError(email, "Not a valid email"))
+    else if (passwordField.is != confirmPasswordField.is)
+      List(FieldError(confirmPasswordField, "Passwords must match"))
+    else if (User.emailExists(email.is.toString())) {
+      List(FieldError(email, "Email already exists, please go to the login page for the remainder email"))
+    }
+    else if (User.userNameExists(userName.is.toString())) {
+      List(FieldError(userName, "username already exists, please change your username"))
+    }
+    else Nil
+  }
+
+  def finish() {
     val user = userVar.is
     user.username(userName.is)
     user.email(email.is)
