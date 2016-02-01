@@ -95,7 +95,7 @@ class Boot {
    val listUsers = Menu.i("Users") / "admin" / "listusers" >> isAdmin 
     val password = Menu.i("Password") / "settings" / "password" >> RequireLoggedIn 
   val register =  Menu.i("Register") / "register" >> RequireNotLoggedIn
-  val listRecipes =  Menu.i("Recipes") / "recipe" /"list" >> RequireNotLoggedIn
+  val listRecipes =  Menu.i("Recipes") / "recipe" /"list"
   val detailsMenu =  Menu.i("Recipe Details") / "recipe" /"details" >> Hidden 
   
   
