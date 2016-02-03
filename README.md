@@ -1,7 +1,6 @@
 # RecipeGrace #
 
 Source code for the project [www.recipegrace.com](recipegrace.com)
-000000
 ## Build & Run ##
 
 ```sh
