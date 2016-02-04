@@ -115,11 +115,7 @@ object IndexHelper extends ZipArchive {
 
   def init() = {
     deleteIndex()
-    val root = unZip(this.getClass().getResourceAsStream("/data.zip"))
-
-
-
-
+    val root = unZip(this.getClass.getResourceAsStream("/data.zip"))
     createMXP(root + File.separator + "data" + File.separator + "MXP" + File.separator + "mxpfiles")
     createFDX(root + File.separator + "data" + File.separator + "FDX")
     logger.info("index created!")
@@ -129,9 +125,9 @@ object IndexHelper extends ZipArchive {
     val files = new File(filePath).listFiles()
     val recipes = (
       for (file <- files
-           if (file.getName().toLowerCase().endsWith("fdx"))
+           if file.getName.toLowerCase.endsWith("fdx")
       )
-        yield FDXRecipeReader.readRecipeList(file.getAbsolutePath())).toList.flatten
+        yield FDXRecipeReader.readRecipeList(file.getAbsolutePath)).toList.flatten
     createIndexAndReport(recipes)
 
   }
