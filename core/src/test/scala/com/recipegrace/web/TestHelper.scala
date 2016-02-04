@@ -1,6 +1,5 @@
 package com.recipegrace.web
 
-import com.recipegrace.web.MXPRecipeReader
 import com.recipegrace.web.MXPRecipeReader._
 
 trait TestHelper {

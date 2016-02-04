@@ -1,6 +1,5 @@
 package com.recipegrace.web
 
-import com.recipegrace.web.FDXRecipeReader
 import org.scalatest.{FunSuite, MustMatchers}
 
 class FDXTest extends FunSuite with MustMatchers {

@@ -13,7 +13,7 @@ class ResourceLoaderTest extends BaseTest with ZipArchive {
   test("resource test s") {
     val root = unZip(this.getClass().getResourceAsStream("/data.zip"))
 
-    println(root)
-    new File(root).listFiles().foreach(f => println(f.getName))
+   val files= new File(root).listFiles().map(f => f.getName)
+    files should contain ("data")
   }
 }
