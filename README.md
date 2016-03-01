@@ -1,6 +1,6 @@
 # RecipeGrace #
 
-[![Build Status](https://travis-ci.org/recipegrace/RecipeGrace.svg?branch=master)](https://travis-ci.org//recipegrace/RecipeGrace)
+[![Build Status](https://travis-ci.org/recipegrace/RecipeGrace.svg?branch=master)](https://travis-ci.org/recipegrace/RecipeGrace)
 ### How to run the app?
 
 Source code for the project [www.recipegrace.com](recipegrace.com)
